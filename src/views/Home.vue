@@ -1,13 +1,15 @@
 <template>
-  <div class="home">
-   Hello stup
-  </div>
+<div>
+  <h1 class="center">Home</h1>
+</div>
 </template>
 
 <script>
-
-
 export default {
-  name: 'Home'
+  name: "Home"
 }
 </script>
+
+<style scoped>
+
+</style>
