@@ -1,53 +1,33 @@
 <template>
-  <div class="row">
-    <form class="col s12">
-      <div class="row">
-        <div class="input-field col s6">
-          <input placeholder="Placeholder" id="first_name" type="text" class="validate">
-          <label for="first_name">First Name</label>
-        </div>
-        <div class="input-field col s6">
-          <input id="last_name" type="text" class="validate">
-          <label for="last_name">Last Name</label>
-        </div>
+  <div class="p-2">
+    <button class="bg-light border-0 float-right">X</button>
+    <form>
+      <img src="img/logo.png"  alt="logo" class="img-fluid"/>
+      <p class="">
+        С возвращением! Пожалуйста оформите вход в свой аккаунт или создайте новый
+      </p>
+      <div class="mb-3 mt-3">
+        <label for="email" class="form-label">Email:</label>
+        <input type="email" class="form-control" id="email" placeholder="Enter email" name="email">
       </div>
-      <div class="row">
-        <div class="input-field col s12">
-          <input disabled value="I am not editable" id="disabled" type="text" class="validate">
-          <label for="disabled">Disabled</label>
-        </div>
+      <div class="mb-3">
+        <label for="pwd" class="form-label">Password:</label>
+        <input type="password" class="form-control" id="pwd" placeholder="Enter password" name="pswd">
       </div>
-      <div class="row">
-        <div class="input-field col s12">
-          <input id="password" type="password" class="validate">
-          <label for="password">Password</label>
-        </div>
+      <div class="form-check mb-3">
+        <label class="form-check-label">
+          <input class="form-check-input" type="checkbox" name="remember"> Remember me
+        </label>
       </div>
-      <div class="row">
-        <div class="input-field col s12">
-          <input id="email" type="email" class="validate">
-          <label for="email">Email</label>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col s12">
-          This is an inline input field:
-          <div class="input-field inline">
-            <input id="email_inline" type="email" class="validate">
-            <label for="email_inline">Email</label>
-            <span class="helper-text" data-error="wrong" data-success="right">Helper text</span>
-          </div>
-        </div>
-      </div>
+
+        <button type="submit" class="btn btn-primary col col-lg-4" >Войти</button>
+        <button type="submit" class="btn btn-primary col col-lg-5 m-lg-2 mt-1">Регистрация</button>
+
     </form>
-    <form >
-      <div >
-        <input  type="email" name="email"/>
-        <label for="email">Email</label>
-        <input  type="password" name="password" />
-        <label for="password">Password</label>
-      </div>
-    </form>
+    <p class="mt-3">
+      Войти с помощию
+      <a class="font-weight-bold">ВКонтакте</a> <a class="font-weight-bold">Google</a>
+    </p>
   </div>
 </template>
 
@@ -58,11 +38,5 @@ export default {
 </script>
 
 <style scoped>
-  input {
-    border: 2px;
 
-  }
-  input:focus {
-    border-left: #0d47a1;
-  }
 </style>

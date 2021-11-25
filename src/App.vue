@@ -21,7 +21,28 @@ export default {
 </script>
 
 <style lang="scss">
+@import 'assets/index.css';
 
-  @import 'assets/index.css';
+$primary_color_1: #28292B;
+$primary_color_2: #5B5C5E;
+$font_1: 'Yeseva One', serif;
+$font_2: 'Josefin Sans', serif;
+
+h1 {
+  font-family: $font_1;
+  color: $primary_color_1;
+}
+
+h2 {
+  font-family: $font_2;
+  color: $primary_color_1;
+}
+
+h3 {
+  font-family: $font_2;
+  color: $primary_color_2;
+}
+
+
 
 </style>
