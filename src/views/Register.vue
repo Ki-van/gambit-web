@@ -3,9 +3,7 @@
 
     <button class="bg-light border-0 float-right">X</button>
     <form>
-      <div class="d-flex justify-content-center">
-        <img src="img/avatar.png" alt="logo" class="img-fluid mx-auto d-block"/>
-      </div>
+
 
       <p class="text-center fs-2">
         Добавьте фото
