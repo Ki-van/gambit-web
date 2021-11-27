@@ -6,8 +6,8 @@
       <p class="">
         С возвращением! Пожалуйста оформите вход в свой аккаунт или создайте новый
       </p>
-      <div class="mb-3 mt-3">
-        <label for="email" class="form-label">Email:</label>
+      <div class="form-floating mb-3 mt-3">
+        <label for="email" class="form-label">Почта</label>
         <input type="email" class="form-control" id="email" placeholder="Enter email" name="email">
       </div>
       <div class="mb-3">
@@ -25,7 +25,7 @@
 
     </form>
     <p class="mt-3">
-      Войти с помощию
+      Войти с помощью
       <a class="font-weight-bold">ВКонтакте</a> <a class="font-weight-bold">Google</a>
     </p>
   </div>
