@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <section class="vh-100" style="background-color: #f5f5f5;">
     <img src="img/logo.png" alt="logo" class="img-fluid mx-auto d-block"/>
     <!-- Navbar-->
     <nav class="navbar navbar-expand-lg sticky-top">
@@ -70,12 +70,25 @@
     <main>
       <router-view/>
     </main>
-  </div>
+  <Footer />
+  </section>
 </template>
 
 <script>
+import Footer from "../components/Footer";
+export default {
+  components: {
+    Footer
+  }
+};
 </script>
 
 <style scoped>
+a {
+  font-family: 'Yeseva One', serif;
+  color: #5B5C5E;
+  font-size: 22px;
+  font-weight: bold;
+}
 
 </style>
