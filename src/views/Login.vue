@@ -1,6 +1,5 @@
 <template>
   <div class="p-2">
-    <button class="bg-light border-0 float-right">X</button>
     <form>
       <img src="img/logo.png"  alt="logo" class="img-fluid"/>
       <p class="">

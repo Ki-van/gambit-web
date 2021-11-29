@@ -1,11 +1,11 @@
 <template>
   <div class="p-2">
-
-    <button class="bg-light border-0 float-right">X</button>
     <form>
 
-
-      <p class="text-center fs-2">
+      <div>
+        <img src="img/avatar.png" class="img-fluid d-flex mx-auto"/>
+      </div>
+      <p class="text-center">
         Добавьте фото
       </p>
       <div class="mb-3 mt-3">
