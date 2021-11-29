@@ -41,6 +41,24 @@ const routes = [
     name: 'about',
     meta: {layout: 'main'},
     component: () => import('../views/About')
+  },
+  {
+    path: '/basket',
+    name: 'basket',
+    meta: {layout: 'main'},
+    component: () => import('../views/Basket')
+  },
+  {
+    path: '/basket/delivery',
+    name: 'delivery',
+    meta: {layout: 'empty'},
+    component: () => import('../views/ChangeDeliveryMethod')
+  },
+  {
+    path: '/basket/address',
+    name: 'address',
+    meta: {layout: 'empty'},
+    component: () => import('../views/ChangeDeliveryAddress')
   }
 ]
 
