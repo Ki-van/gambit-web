@@ -38,7 +38,7 @@
         <li class="nav-item me-3 me-lg-1">
           <a class="nav-link d-sm-flex align-items-sm-center" href="#">
             <img
-                src="img/ion_cart-outline.png"
+                src="img/ion_cart-outline.svg"
                 class="rounded-circle"
                 height="46"
                 alt=""
@@ -50,7 +50,7 @@
         <li class="nav-item me-3 me-lg-1">
           <a class="nav-link d-sm-flex align-items-sm-center" href="#">
             <img
-                src="img/ion_notifications-outline.png"
+                src="img/ion_notifications-outline.svg"
                 class="rounded-circle"
                 height="46"
                 alt=""

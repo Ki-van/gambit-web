@@ -55,7 +55,7 @@ const routes = [
     component: () => import('../views/ChangeDeliveryMethod')
   },
   {
-    path: '/basket/address',
+    path: '/basket/delivery/address',
     name: 'address',
     meta: {layout: 'empty'},
     component: () => import('../views/ChangeDeliveryAddress')
