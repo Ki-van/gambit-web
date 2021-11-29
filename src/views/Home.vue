@@ -1,5 +1,5 @@
 <template>
-  <section style="background-color: #f5f5f5">
+  <section>
     <div class="container">
       <div class="row">
         <div class="col-lg-6">
@@ -28,7 +28,7 @@
     </div>
 
     <div class="container-fluid d-block justify-content-center mt-4" style="background-color: #5B5C5E">
-      <div class="d-block mt-3 w-50 mx-auto text-center">
+      <div class="d-block mt-5 w-50 mx-auto text-center">
         <h1 class="text-white">
           Выбери свою доску и начни играть уже сейчас
         </h1>
@@ -38,7 +38,7 @@
           Felis, risus donec amet pretium. Sit ac in vel duis. Aliquam a pulvinar sed duis mus duis.
         </p>
       </div>
-      <div class="row justify-content-around">
+      <div class="row justify-content-around  ">
         <div class="col-lg card" style="max-width:395px; background-color: #28292B; border-radius: 30px">
           <img class="card-img-top img-fluid mt-3 p-3" src="img/plug.png" alt="">
           <div class="card-body">

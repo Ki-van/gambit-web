@@ -23,6 +23,12 @@ const routes = [
     name: 'register',
     meta: {layout: 'empty'},
     component: () => import('../views/Register.vue')
+  },
+  {
+    path: '/products',
+    name: 'products',
+    meta: {layout: 'main'},
+    component: () => import('../views/Products')
   }
 ]
 
