@@ -31,18 +31,25 @@ $font_2: 'Josefin Sans', serif;
 h1 {
   font-family: $font_1;
   color: $primary_color_1;
+  font-size: 3em;
 }
 
 h2 {
   font-family: $font_2;
   color: $primary_color_1;
+  font-size: 1.5em;
 }
 
 h3 {
   font-family: $font_2;
   color: $primary_color_2;
+  font-size: 1.5em;
 }
 
-
+p {
+  font-size: 1.5em;
+  color: #28292B;
+  font-family: "Josefin Sans", serif;
+}
 
 </style>
