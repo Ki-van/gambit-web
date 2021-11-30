@@ -27,16 +27,18 @@
       </div>
     </div>
 
-    <div class="container-fluid d-block justify-content-center mt-4" style="background-color: #5B5C5E">
-      <div class="d-block mt-5 w-50 mx-auto text-center">
-        <h1 class="text-white">
+    <div class="container-fluid   mt-4" style="background-color: #5B5C5E">
+      <div class="d-flex justify-content-center " >
+        <div class="mt-5 m-sm-0 text-center" style="max-width: 700px">
+          <h1 class="text-white ">
           Выбери свою доску и начни играть уже сейчас
         </h1>
-        <p class="text-white">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Habitant neque suspendisse diam id in semper
-          elementum.
-          Felis, risus donec amet pretium. Sit ac in vel duis. Aliquam a pulvinar sed duis mus duis.
-        </p>
+          <p class="text-white mt-4">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Habitant neque suspendisse diam id in semper
+            elementum.
+            Felis, risus donec amet pretium. Sit ac in vel duis. Aliquam a pulvinar sed duis mus duis.
+          </p>
+        </div>
       </div>
       <div class="row justify-content-around  ">
         <div class="col-lg card" style="max-width:395px; background-color: #28292B; border-radius: 30px">
