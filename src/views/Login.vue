@@ -1,7 +1,7 @@
 <template>
   <div class="p-2">
     <form>
-      <img src="img/logo.png"  alt="logo" class="img-fluid"/>
+      <img src="img/logo.png" alt="logo" class="img-fluid d-flex mx-auto"/>
       <p class="">
         С возвращением! Пожалуйста оформите вход в свой аккаунт или создайте новый
       </p>
@@ -19,9 +19,8 @@
         </label>
       </div>
 
-        <button type="submit" class="btn btn-primary col col-lg-4" >Войти</button>
-        <button type="submit" class="btn btn-primary col col-lg-5 m-lg-2 mt-1">Регистрация</button>
-
+      <button type="submit" class="btn btn-primary col col-lg-4">Войти</button>
+      <button type="submit" class="btn btn-primary col col-lg-5 m-lg-2 mt-1">Регистрация</button>
     </form>
     <p class="mt-3">
       Войти с помощью
