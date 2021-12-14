@@ -1,6 +1,6 @@
 <template>
   <div class="p-2">
-    <form>
+    <form @submit.prevent="submitHandler">
       <img src="img/logo.png" alt="logo" class="img-fluid d-flex mx-auto"/>
       <p class="">
         С возвращением! Пожалуйста оформите вход в свой аккаунт или создайте новый
@@ -20,7 +20,10 @@
       </div>
 
       <button type="submit" class="btn btn-primary col col-lg-4">Войти</button>
-      <button type="submit" class="btn btn-primary col col-lg-5 m-lg-2 mt-1">Регистрация</button>
+      <router-link to="/register" >
+        <button class="btn btn-primary col col-lg-5 m-lg-2 mt-1">Регистрация</button>
+      </router-link>
+
     </form>
     <p class="mt-3">
       Войти с помощью
@@ -31,7 +34,12 @@
 
 <script>
 export default {
-  name: "Login"
+  name: "Login",
+  methods: {
+    submitHandler(){
+      this.$router.push('/');
+    }
+  }
 }
 </script>
 

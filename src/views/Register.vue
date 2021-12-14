@@ -41,10 +41,10 @@
 
 
     </form>
-    <p class="mt-3">
+    <div class="mt-3">
       Войти с помощию
       <a class="font-weight-bold">ВКонтакте</a> <a class="font-weight-bold">Google</a>
-    </p>
+    </div>
   </div>
 </template>
 

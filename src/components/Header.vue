@@ -6,11 +6,14 @@
       </button>
       <div class="navbar-collapse collapse dual-nav w-50 order-1 order-md-0">
         <ul class="navbar-nav ">
-          <li class="nav-item active">
+          <router-link
+              to="/register"
+              tag="li"
+              class="nav-item  ">
             <a class="nav-link p-0" href="#">
               <img src="img/ion_person-circle-outline.svg" alt="person" loading="lazy" height="60px"/>
             </a>
-          </li>
+          </router-link>
         </ul>
       </div>
       <div class="navbar-collapse collapse dual-nav w-100 order-2">
@@ -22,8 +25,7 @@
               tag="li"
               :exact="link.exact"
               class="nav-item me-3 me-lg-1 mx-3"
-              active-class="active"
-          >
+              active-class="active">
             <a class="nav-link" href="#">{{ link.title }}</a>
           </router-link>
         </ul>
