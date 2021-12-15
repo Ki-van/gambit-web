@@ -2,7 +2,7 @@
   <section class="vh-100" style="background-color: #5B5C5E;">
     <div class="container py-5 h-100">
       <div class="row d-flex justify-content-center align-items-center h-100">
-        <div class="col-12 col-md-8 col-lg-8 ">
+        <div class="col-12 col-md-9 col-lg-8 ">
           <div class="card shadow-2-strong" style="border-radius: 1rem;">
             <div class="row justify-content-end pt-4 pr-5" >
               <button @click="CloseFrame" class="border-0 bg-white">

@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/precache-manifest.0ba0ab49924d9bd089ed4d20cf62dcbc.js"
+  "/precache-manifest.efdced5ef1db18ac7b740dfdbfae9f89.js"
 );
 
 workbox.core.setCacheNameDetails({prefix: "gambit-web"});
