@@ -52,4 +52,36 @@ p {
   font-family: "Josefin Sans", serif;
 }
 
+.nav-link:hover{
+  text-decoration: underline;
+}
+
+.btn-primary{
+  color: #007bff;
+
+  background-color: white;
+  border-radius: 15px;
+}
+
+.btn-primary:hover{
+  color: white;
+  background-color: #007bff;
+}
+
+.btn-dark{
+  color: #343a40;
+
+  background-color: white;
+  border-radius: 15px;
+}
+
+.btn-dark:hover{
+  color: white;
+  background-color: #343a40;
+}
+
+.li{
+
+}
+
 </style>
