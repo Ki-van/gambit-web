@@ -4,31 +4,33 @@
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".dual-nav">
         <span class="navbar-toggler-icon"></span>
       </button>
-      <div class="navbar-collapse collapse dual-nav w-50 order-1 order-md-0">
-        <ul class="navbar-nav center">
-          <router-link
-              to="/register"
-              tag="li"
-              class="nav-item  ">
-            <a class="nav-link p-0" href="#">
-              <img src="img/ion_person-circle-outline.svg" alt="person" loading="lazy" height="60px"/>
-            </a>
-          </router-link>
+      <div class="inline right">
           <router-link
               to="/basket"
-              tag="li"
+              tag="div"
               class="nav-item small">
             <a class="nav-link" href="">
               <img src="img/ion_cart-outline.svg" class="img-fluid" height="60px" alt="cart" loading="lazy"/>
               <span class="badge rounded-pill badge-notification bg-danger">1</span>
             </a>
           </router-link>
-          <li class="nav-item small">
-            <a class="nav-link" href="">
+          <div class="nav-item small">
+            <a class="nav-link small" href="">
               <img src="img/ion_notifications-outline.svg" class="img-fluid" height="60px" alt="notify" loading="lazy"/>
               <span class="badge rounded-pill badge-notification bg-danger">1</span>
             </a>
-          </li>
+          </div>
+      </div>
+      <div class="navbar-collapse collapse dual-nav w-50 order-1 order-md-0">
+        <ul class="navbar-nav center">
+          <router-link
+              to="/register"
+              tag="li"
+              class="nav-item big">
+            <a class="nav-link p-0" href="#">
+              <img src="img/ion_person-circle-outline.svg" alt="person" loading="lazy" height="60px"/>
+            </a>
+          </router-link>
         </ul>
       </div>
       <div class="navbar-collapse collapse dual-nav w-100 order-2">
@@ -74,6 +76,7 @@ export default {
   data: () => {
     return {
       links: [
+        {title: 'Личный кабинет', url: '/personalArea'},
         {title: 'Главная', url: '/', exact: true},
         {title: 'Продукция', url: '/products'},
         {title: 'Контакты', url: '/contacts'},

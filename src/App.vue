@@ -115,7 +115,7 @@ p {
 }
 
 .big{
-  display: block;
+  display: inline-block;
 }
 
 @media (max-width: 950px) {
@@ -135,7 +135,7 @@ p {
 
 @media (max-width: 766px) {
   .small{
-    display: block;
+    display: inline-block;
   }
   .big{
     display: none;
