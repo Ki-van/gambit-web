@@ -46,13 +46,31 @@
             </li>
           </ul>
         </div>
-
         <div>
           <h5 class="font-weight-bold  mt-3 mb-4">Контакты</h5>
         </div>
         <div>
           <img src="img/logo.png" alt="logo" height="53"/>
         </div>
+      </div>
+      <div class="social_block">
+        <div class="footer__social">
+          <a href="https://vk.com/gambitchessgame" target="_blank">
+            <img src="img/VK.png" alt="logo" class="social"/>
+          </a>
+          <a href="https://instagram.com/gambit_31bstu?utm_medium=copy_link" target="_blank">
+            <img src="img/IN.png" alt="logo" class="social"/>
+          </a>
+          <img src="img/YT.png" alt="logo" class="social"/>
+        </div>
+        <ul class="list-unstyled footer__social">
+          <li>
+            <a>8-999-999-99-99</a>
+          </li>
+          <li>
+            <a href="#!">©Сведения об ответственности</a>
+          </li>
+        </ul>
       </div>
     </div>
   </footer>
