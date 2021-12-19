@@ -1,7 +1,7 @@
 <template>
   <div class="mt-4" style="background-color: #e6e6e6;
 border-radius: 50px">
-    <div class="row p-lg-5 p-md-3 p-sm-3">
+    <div class="row p-lg-5 p-md-3 p-sm-3 py-4 px-3">
       <div class="col-lg-6">
         <VueSlickCarousel v-bind="gallerySettings">
           <div><img src="img/plug.png" class="img-fluid " height=auto></div>
@@ -10,7 +10,7 @@ border-radius: 50px">
           <div><img src="img/plug.png" class="img-fluid" height=auto></div>
         </VueSlickCarousel>
       </div>
-      <div class="col-lg-6 mt-sm-3">
+      <div class="col-lg-6 mt-sm-3 mt-3">
         <h1>Модель 1</h1>
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Habitant neque suspendisse diam id in semper
           elementum. Felis, risus donec amet pretium. Sit ac in vel duis. Aliquam a pulvinar sed duis mus duis.</p>
