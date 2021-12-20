@@ -8,7 +8,7 @@
       <div class="form-floating mb-3 mt-3">
         <label for="email" class="form-label">Почта</label>
         <input
-            type="email"
+            type="text"
             class="form-control"
             id="email"
             placeholder="Enter email"
@@ -36,11 +36,11 @@
         <div class="invalid-feedback"
              v-if="($v.password.$dirty) && !$v.password.required"
         >
-        Введите пароль
+          Введите пароль
         </div>
         <div class="invalid-feedback"
              v-else-if="($v.password.$dirty) && !$v.password.minLength">
-          Пароль должен быть длиной минимум {{$v.password.$params.minLength.min}}
+          Пароль должен быть длиной минимум {{ $v.password.$params.minLength.min }}
         </div>
       </div>
       <div class="form-check mb-3">
@@ -50,37 +50,70 @@
       </div>
 
       <button type="submit" class="btn btn-primary col col-lg-4">Войти</button>
-      <router-link to="/register" >
+      <router-link to="/register">
         <button class="btn btn-primary col col-lg-5 m-lg-2 mt-1">Регистрация</button>
       </router-link>
 
     </form>
     <div class="mt-3 " style="cursor: pointer">
       Войти с помощью
-      <a class="font-weight-bold " >ВКонтакте</a> <a class="font-weight-bold">Google</a>
+      <a class="font-weight-bold ">ВКонтакте</a> <a class="font-weight-bold">Google</a>
     </div>
   </div>
 </template>
 
 <script>
-import {email, required, minLength} from 'vuelidate/lib/validators'
+import {required, minLength} from 'vuelidate/lib/validators'
+
+
+let FormData = require('form-data');
+
+
 export default {
   name: "Login",
-  data: ()=>({
-    email:'',
-    password:''
+  data: () => ({
+    email: '',
+    password: ''
   }),
   validations: {
-    email: {email, required},
+    email: {required},
     password: {required, minLength: minLength(6)}
   },
   methods: {
     submitHandler() {
-      if(this.$v.$invalid) {
+      if (this.$v.$invalid) {
         this.$v.$touch()
         return
       }
-      this.$router.push('/');
+      let data = new FormData();
+      data.append('username', this.email);
+      data.append('password', this.password);
+
+      var requestOptions = {
+        method: 'POST',
+        headers: {},
+        body: data,
+        redirect: 'follow'
+      };
+
+      fetch("https://kafitis.intbel.ru/api/token", requestOptions)
+          .then(response => response.json())
+          .then(response => {
+        /*let is_admin = response.data.user.is_admin
+        localStorage.setItem('user', JSON.stringify(response.data.user))*/
+        localStorage.setItem('jwt', response.data)
+        if (localStorage.getItem('jwt') != null) {
+          this.$emit('loggedIn')
+          alert("Logged in")
+          if (this.$route.params.nextUrl != null) {
+            this.$router.push(this.$route.params.nextUrl)
+          } else {
+            this.$router.push('/')
+          }
+        }
+      }).catch(function (error) {
+        console.error(error.response);
+      });
     }
   }
 }
