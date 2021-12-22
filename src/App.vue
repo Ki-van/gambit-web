@@ -259,6 +259,55 @@ footer{
   color: #5B5C5E;
 }
 
+.mid{
+  width: 80%;
+}
+.person__block{
+  width: 10%;
+}
+.person{
+  width: 100%;
+}
+.history__block{
+  background: #E6E6E6;
+  border-radius: 25px;
+  margin-top: 30px;
+  height: 75px;
+}
+.history__15, .history__10, .history__25,  .history__35,  .history__50, .history__20, .history__40{
+  padding: 0 10px 0 10px;
+  width: 15%;
+}
+.history__10{
+  width: 10%;
+}
+.history__25{
+  width: 25%;
+}
+.history__50{
+  width: 50%;
+}
+.history__20{
+  width: 20%;
+}
+.history__40{
+  width: 40%;
+}
+.history__35{
+  width: 35%;
+}
+
+.history__text, .history__text__c{
+  font-family: Josefin Sans;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 30px;
+  line-height: 30px;
+  color: #28292B;
+}
+.history__text__c{
+  color: #27AE60;
+}
 
 @media (max-width: 950px) {
   .footer__social{
@@ -316,11 +365,17 @@ footer{
   .flex__block__half{
     width: 100%;
   }
+  .history__text, .history__text__c{
+    font-size: 24px;
+  }
 }
 
 @media (max-width: 455px) {
   .title__text, .title__text__w, .title__text__l, .personal__text, .heading{
     font-size: 24px;
+  }
+  .history__text, .history__text__c{
+    font-size: 16px;
   }
 }
 
