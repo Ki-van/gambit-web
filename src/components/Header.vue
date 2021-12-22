@@ -42,6 +42,7 @@
               tag="li"
               :exact="link.exact"
               class="nav-item me-3 me-lg-1 mx-3"
+              :class="link.class"
               active-class="active">
             <a class="nav-link" href="#">{{ link.title }}</a>
           </router-link>
@@ -76,7 +77,7 @@ export default {
   data: () => {
     return {
       links: [
-        {title: 'Личный кабинет', url: '/personalArea'},
+        {title: 'Личный кабинет', url: '/profile', class: "small"},
         {title: 'Главная', url: '/', exact: true},
         {title: 'Продукция', url: '/products'},
         {title: 'Контакты', url: '/contacts'},
