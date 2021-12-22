@@ -49,6 +49,24 @@ const routes = [
     component: () => import('../views/Contacts')
   },
   {
+    path: '/profile',
+    name: 'profile',
+    meta: {
+      layout: 'main',
+      guest: true
+    },
+    component: () => import('../views/Profile')
+  },
+  {
+    path: '/play',
+    name: 'play',
+    meta: {
+      layout: 'main',
+      guest: true
+    },
+    component: () => import('../views/Play')
+  },
+  {
     path: '/about',
     name: 'about',
     meta: {
