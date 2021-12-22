@@ -1,13 +1,12 @@
 <template>
-  <div class="mt-4" style="background-color: #e6e6e6;
-border-radius: 50px">
+  <div class="mt-4 block__model__sel">
     <div class="row p-lg-5 p-md-3 p-sm-3 py-4 px-3">
       <div class="col-lg-6">
         <VueSlickCarousel v-bind="gallerySettings">
-          <div><img src="img/plug.png" class="img-fluid " height=auto></div>
-          <div><img src="img/plug.png" class="img-fluid" height=auto></div>
-          <div><img src="img/plug.png" class="img-fluid" height=auto></div>
-          <div><img src="img/plug.png" class="img-fluid" height=auto></div>
+          <div><img src="img/plug.png" class="img-fluid"></div>
+          <div><img src="img/plug.png" class="img-fluid"></div>
+          <div><img src="img/plug.png" class="img-fluid"></div>
+          <div><img src="img/plug.png" class="img-fluid"></div>
         </VueSlickCarousel>
       </div>
       <div class="col-lg-6 mt-sm-3 mt-3">
@@ -17,11 +16,11 @@ border-radius: 50px">
         <p>Характеристики:</p>
         <p>ШхДхВ - ____</p>
         <span class="font-weight-bold" style="font-size: 1.5em">100$</span>
-        <div class=" d-flex justify-content-around">
-          <div class="">
+        <div class="flex__block">
+          <div class="left">
             <button class="btn btn-primary">Купить</button>
           </div>
-          <div class="">
+          <div class="right">
             <button class="btn btn-dark">В корзину</button>
           </div>
         </div>
@@ -53,5 +52,7 @@ export default {
 </script>
 
 <style scoped>
-
+.left, .right{
+  width: 50%;
+}
 </style>

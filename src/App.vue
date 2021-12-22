@@ -52,6 +52,36 @@ p {
   font-family: "Josefin Sans", serif;
 }
 
+footer{
+  background-color: #5B5C5E;
+}
+
+.box__border{
+  border-radius: 50px;
+  height: 60px;
+}
+
+.block__model__sel{
+  background-color: #e6e6e6;
+  border-radius: 50px;
+}
+
+.card{
+  margin-top: 1em;
+  max-width:380px !important;
+  background-color: #28292B !important;
+  border-radius: 30px !important;
+}
+.text__model{
+  font-size: 1.5em;
+  font-family: 'Josefin Sans', serif;
+}
+
+.heder__icon{
+  height: 60px;
+  loading: lazy;
+}
+
 .center{
   text-align: center;
   justify-content: center;

@@ -14,7 +14,7 @@
 
         </div>
         <div class="col-lg-6 mt-2">
-          <img src="img/plug.png" class="img-fluid " height=auto>
+          <img src="img/plug.png" class="img-fluid">
         </div>
       </div>
       <ModelSectionLg />

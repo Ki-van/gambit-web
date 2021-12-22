@@ -1,5 +1,5 @@
 <template>
-  <footer class="page-footer font-small pt-4 mt-5" style="background-color: #5B5C5E">
+  <footer class="page-footer font-small pt-4 mt-5">
     <div class="container-fluid text-center text-md-left">
       <div class="d-flex row justify-content-around">
         <div>

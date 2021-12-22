@@ -18,11 +18,12 @@
       <span class="d-block">Адрес 2: 8999999999</span>
     </p>
   </div>
-  <div class="col">
+  <div class="flex__block__half">
     <img src="img/location_map.png" class="img-fluid"/>
   </div>
 </div>
 
+  <div class="personal__block">
   <div class="center">
     <div class="block__personal__data">
       <div class="personal__data__left left">
@@ -85,11 +86,12 @@
       </div>
     </div>
   </div>
+  </div>
 
 </section>
 </template>
-
 <script>
+
 export default {
   name: "Contacts"
 }

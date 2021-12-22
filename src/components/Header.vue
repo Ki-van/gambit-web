@@ -10,13 +10,13 @@
               tag="div"
               class="nav-item small">
             <a class="nav-link" href="">
-              <img src="img/ion_cart-outline.svg" class="img-fluid" height="60px" alt="cart" loading="lazy"/>
+              <img src="img/ion_cart-outline.svg" class="img-fluid heder__icon" alt="cart"/>
               <span class="badge rounded-pill badge-notification bg-danger">1</span>
             </a>
           </router-link>
           <div class="nav-item small">
             <a class="nav-link small" href="">
-              <img src="img/ion_notifications-outline.svg" class="img-fluid" height="60px" alt="notify" loading="lazy"/>
+              <img src="img/ion_notifications-outline.svg" class="img-fluid heder__icon" alt="notify"/>
               <span class="badge rounded-pill badge-notification bg-danger">1</span>
             </a>
           </div>
@@ -28,7 +28,7 @@
               tag="li"
               class="nav-item big">
             <a class="nav-link p-0" href="#">
-              <img src="img/ion_person-circle-outline.svg" alt="person" loading="lazy" height="60px"/>
+              <img src="img/ion_person-circle-outline.svg" class="heder__icon" alt="person"/>
             </a>
           </router-link>
         </ul>
@@ -54,13 +54,13 @@
               tag="li"
               class="nav-item big">
             <a class="nav-link" href="">
-              <img src="img/ion_cart-outline.svg" class="img-fluid" height="60px" alt="cart" loading="lazy"/>
+              <img src="img/ion_cart-outline.svg" class="img-fluid heder__icon" alt="cart"/>
               <span class="badge rounded-pill badge-notification bg-danger">1</span>
             </a>
           </router-link>
           <li class="nav-item big">
             <a class="nav-link" href="">
-              <img src="img/ion_notifications-outline.svg" class="img-fluid" height="60px" alt="notify" loading="lazy"/>
+              <img src="img/ion_notifications-outline.svg" class="img-fluid heder__icon" alt="notify"/>
               <span class="badge rounded-pill badge-notification bg-danger">1</span>
             </a>
           </li>

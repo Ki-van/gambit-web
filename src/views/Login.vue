@@ -57,7 +57,7 @@
     </form>
     <div class="mt-3 " style="cursor: pointer">
       Войти с помощью
-      <a class="font-weight-bold ">ВКонтакте</a> <a class="font-weight-bold">Google</a>
+      <a class="font-weight-bold">ВКонтакте</a> <a class="font-weight-bold">Google</a>
     </div>
   </div>
 </template>

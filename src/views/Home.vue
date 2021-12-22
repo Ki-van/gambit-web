@@ -18,19 +18,19 @@
         </div>
         <div class="col-lg-6 mt-2">
           <VueSlickCarousel v-bind="gallerySettings">
-            <div><img src="img/plug.png" class="img-fluid " height=auto></div>
-            <div><img src="img/plug.png" class="img-fluid" height=auto></div>
-            <div><img src="img/plug.png" class="img-fluid" height=auto></div>
-            <div><img src="img/plug.png" class="img-fluid" height=auto></div>
+            <div><img src="img/plug.png" class="img-fluid"></div>
+            <div><img src="img/plug.png" class="img-fluid"></div>
+            <div><img src="img/plug.png" class="img-fluid"></div>
+            <div><img src="img/plug.png" class="img-fluid"></div>
           </VueSlickCarousel>
         </div>
       </div>
     </div>
 
-    <div class="container-fluid   mt-4" style="background-color: #5B5C5E">
-      <div class="d-flex justify-content-center " >
+    <div class="container-fluid mt-4" style="background-color: #5B5C5E">
+      <div class="d-flex justify-content-center">
         <div class="mt-5 m-sm-0 text-center" style="max-width: 700px">
-          <h1 class="text-white ">
+          <h1 class="text-white">
           Выбери свою доску и начни играть уже сейчас
         </h1>
           <p class="text-white mt-4">
@@ -41,10 +41,10 @@
         </div>
       </div>
       <div class="row justify-content-around  ">
-        <div class="col-lg card" style="max-width:395px; background-color: #28292B; border-radius: 30px">
+        <div class="col-lg card">
           <img class="card-img-top img-fluid mt-3 p-3" src="img/plug.png" alt="">
           <div class="card-body">
-            <div class="row font-weight-bold text-white " style="font-size: 1.5em; font-family: 'Josefin Sans', serif">
+            <div class="row font-weight-bold text-white text__model">
               <div class="col ">
                 Модель 1
               </div>
@@ -52,10 +52,10 @@
             </div>
           </div>
         </div>
-        <div class="col-lg card" style="max-width:395px; background-color: #28292B; border-radius: 30px">
+        <div class="col-lg card">
           <img class="card-img-top img-fluid mt-3 p-3" src="img/plug.png" alt="">
           <div class="card-body">
-            <div class="row font-weight-bold text-white " style="font-size: 1.5em; font-family: 'Josefin Sans', serif">
+            <div class="row font-weight-bold text-white text__model">
               <div class="col ">
                 Модель 1
               </div>
@@ -63,10 +63,10 @@
             </div>
           </div>
         </div>
-        <div class="col-lg card" style="max-width:395px; background-color: #28292B; border-radius: 30px">
+        <div class="col-lg card">
           <img class="card-img-top img-fluid mt-3 p-3" src="img/plug.png" alt="">
           <div class="card-body">
-            <div class="row font-weight-bold text-white " style="font-size: 1.5em; font-family: 'Josefin Sans', serif">
+            <div class="row font-weight-bold text-white text__model">
               <div class="col ">
                 Модель 1
               </div>
@@ -93,10 +93,10 @@
         </div>
         <div class="col-lg-6 mt-2">
           <VueSlickCarousel v-bind="gallerySettings">
-            <div><img src="img/plug.png" class="img-fluid " height=auto></div>
-            <div><img src="img/plug.png" class="img-fluid" height=auto></div>
-            <div><img src="img/plug.png" class="img-fluid" height=auto></div>
-            <div><img src="img/plug.png" class="img-fluid" height=auto></div>
+            <div><img src="img/plug.png" class="img-fluid"></div>
+            <div><img src="img/plug.png" class="img-fluid"></div>
+            <div><img src="img/plug.png" class="img-fluid"></div>
+            <div><img src="img/plug.png" class="img-fluid"></div>
           </VueSlickCarousel>
         </div>
       </div>
@@ -106,10 +106,10 @@
       <div class="row">
         <div class="col-lg-6 ">
           <VueSlickCarousel v-bind="gallerySettings">
-            <div><img src="img/plug.png" class="img-fluid " height=auto></div>
-            <div><img src="img/plug.png" class="img-fluid" height=auto></div>
-            <div><img src="img/plug.png" class="img-fluid" height=auto></div>
-            <div><img src="img/plug.png" class="img-fluid" height=auto></div>
+            <div><img src="img/plug.png" class="img-fluid"></div>
+            <div><img src="img/plug.png" class="img-fluid"></div>
+            <div><img src="img/plug.png" class="img-fluid"></div>
+            <div><img src="img/plug.png" class="img-fluid"></div>
           </VueSlickCarousel>
         </div>
         <div class="col-lg-6 mt-2">
