@@ -96,6 +96,10 @@ p {
   text-align: right !important;
 }
 
+.ptop30{
+  padding-top: 30px;
+}
+
 .social_block{
   padding-right: 4%;
 }
@@ -104,18 +108,125 @@ p {
   text-align: right;
   justify-content: right;
   padding: 10px;
+  color: white;
 }
 
 .social{
   padding: 0 0 0 10px;
 }
 
-.small{
+.small, .LP{
   display: none;
 }
 
 .big{
   display: inline-block;
+}
+
+.flex__block, .flex__block__half{
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.flex__block__half{
+  width: 50%;
+}
+
+.block_l, .block_w{
+  width: 50%;
+}
+
+.hr_w{
+  box-sizing: border-box;
+  width: 69%;
+  border: 8px solid #27AE60;
+}
+
+.hr_l{
+  box-sizing: border-box;
+  width: 30%;
+  border: 8px solid #EB5757;
+}
+
+.avatar{
+  width: 300px;
+  height: auto;
+  margin-top: -55px;
+  margin-right: -50px;
+}
+
+.personal__data__left{
+  width: 70%;
+}
+
+.personal__data__right{
+  width: 30%;
+}
+
+.heading, .ststus{
+  font-family: Josefin Sans;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 45px;
+  line-height: 30px;
+
+  color: #28292B;
+}
+
+.ststus{
+  font-weight: normal;
+  font-size: 36px;
+  line-height: 30px;
+}
+
+.jam__write{
+  padding: 0 0 30px 15px;
+}
+
+.logout{
+  margin: 80px 30px 0 0;
+}
+
+.personal__data{
+  padding: 35px 0 0 40px;
+}
+
+.block__personal__data{
+  width: 100%;
+  height: 187px;
+  background: #E6E6E6;
+  border-radius: 45px;
+  margin-top: 100px;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.title__text, .title__text__w, .title__text__l{
+  font-family: Josefin Sans;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 36px;
+  line-height: 30px;
+  color: #488BFE;
+}
+
+.title__text__w, .title__text__l{
+  font-size: 32px;
+  line-height: 40px;
+  color: #27AE60;
+}
+
+.title__text__l{
+  color: #EB5757;
+}
+.personal__text{
+  font-family: Josefin Sans;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 32px;
+  line-height: 40px;
+  color: #5B5C5E;
 }
 
 @media (max-width: 950px) {
@@ -134,7 +245,7 @@ p {
 }
 
 @media (max-width: 766px) {
-  .small{
+  .small, .LP{
     display: inline-block;
   }
   .big{
