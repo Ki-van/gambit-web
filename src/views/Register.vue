@@ -103,8 +103,9 @@
       <div class="mb-3 mt-3">
         <input type="text" class="form-control" id="exp" placeholder="Расскажите о вашем опыте" name="exp">
       </div>
-      <button type="submit" class="btn btn-primary col col-lg-4">Регистрация</button>
-
+      <div class="center">
+        <button type="submit" class="btn btn-primary col col-lg-4">Регистрация</button>
+      </div>
       <div class="mt-sm-1">
         <a>Есть аккаунт?</a>
         <router-link to="/login">
