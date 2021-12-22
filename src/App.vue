@@ -66,7 +66,7 @@ footer{
   border-radius: 50px;
 }
 
-.card{
+.card__st{
   margin-top: 1em;
   max-width:380px !important;
   background-color: #28292B !important;

@@ -42,7 +42,7 @@
           </div>
         </div>
       </div>
-      <div class="card mt-2 border">
+      <div class="card mt-2 border card__st">
         <div class="card-header" id="headingTwo">
           <h2 class="mb-0">
             <button class="btn w-100" type="button" data-toggle="collapse" data-target="#collapseTwo"
@@ -89,7 +89,7 @@
           </div>
         </div>
       </div>
-      <div class="card mt-2 border">
+      <div class="card mt-2 border card__st">
         <div class="card-header" id="heading3">
           <h2 class="mb-0">
             <button class="btn w-100" type="button" data-toggle="collapse" data-target="#collapse3"

@@ -40,8 +40,8 @@
           </p>
         </div>
       </div>
-      <div class="row justify-content-around  ">
-        <div class="col-lg card">
+      <div class="row justify-content-around ">
+        <div class="col-lg card card__st">
           <img class="card-img-top img-fluid mt-3 p-3" src="img/plug.png" alt="">
           <div class="card-body">
             <div class="row font-weight-bold text-white text__model">
@@ -52,7 +52,7 @@
             </div>
           </div>
         </div>
-        <div class="col-lg card">
+        <div class="col-lg card card__st">
           <img class="card-img-top img-fluid mt-3 p-3" src="img/plug.png" alt="">
           <div class="card-body">
             <div class="row font-weight-bold text-white text__model">
@@ -63,7 +63,7 @@
             </div>
           </div>
         </div>
-        <div class="col-lg card">
+        <div class="col-lg card card__st">
           <img class="card-img-top img-fluid mt-3 p-3" src="img/plug.png" alt="">
           <div class="card-body">
             <div class="row font-weight-bold text-white text__model">
