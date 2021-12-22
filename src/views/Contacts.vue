@@ -34,7 +34,7 @@
           <span class="ststus">Статус</span>
         </div>
       </div>
-      <div class="personal__data__right right">
+      <div class="right personal__data__right">
         <img src="img/avatar.png" class="avatar">
       </div>
     </div>
