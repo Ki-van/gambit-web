@@ -1,7 +1,6 @@
 <template>
   <div class="p-2">
-    <form @submit.prevent="submitHandler">
-
+    <form @submit.prevent="handleRegister">
       <div>
         <img src="img/avatar.png" class="img-fluid d-flex mx-auto"/>
       </div>
@@ -13,12 +12,12 @@
             type="text"
             class="form-control"
             id="fullname"
-            placeholder="Фамилия Имя"
-            v-model.trim="fullname"
-            :class="{'is-invalid': $v.fullname.$dirty && (!$v.fullname.required)}"
+            placeholder="Имя"
+            v-model.trim="username"
+            :class="{'is-invalid': $v.username.$dirty && (!$v.username.required)}"
         >
         <div class="invalid-feedback"
-             v-if="$v.fullname.$dirty && !$v.fullname.required">
+             v-if="$v.username.$dirty && !$v.username.required">
           Это поле не должно быть пустым
         </div>
       </div>
@@ -39,11 +38,11 @@
 
       <div class="btn-group  btn-group-toggle d-flex" data-toggle="buttons">
         <label class="btn btn-secondary active">
-          <input type="radio" id="male" value="male" v-model="sex">
+          <input type="radio" id="male" value="male" @click="sex = 1">
           Мужчина
         </label>
         <label class="btn btn-secondary">
-          <input type="radio"  id="female" value="female" v-model="sex">
+          <input type="radio" id="female" value="female" @click="sex = 2">
           Женщина
         </label>
       </div>
@@ -104,7 +103,20 @@
         <input type="text" class="form-control" id="exp" placeholder="Расскажите о вашем опыте" name="exp">
       </div>
       <div class="center">
-        <button type="submit" class="btn btn-primary col col-lg-4">Регистрация</button>
+        <button type="submit" class="btn btn-primary col col-lg-4" :disabled="loading">
+          <span
+              v-show="loading"
+              class="spinner-border spinner-border-sm"
+          ></span>
+          Регистрация
+        </button>
+        <div
+            v-if="message"
+            class="alert"
+            :class="successful ? 'alert-success' : 'alert-danger'"
+        >
+          {{ message }}
+        </div>
       </div>
       <div class="mt-sm-1">
         <a>Есть аккаунт?</a>
@@ -128,42 +140,63 @@ import {email, required, minLength} from 'vuelidate/lib/validators'
 export default {
   name: "Register",
   data: () => ({
-    fullname: '',
+    username: '',
     birthdate: '',
     sex: '',
     city: '',
     email: '',
     password: '',
     experience: '',
+    loading: false,
+    successful: false,
+    message: ''
   }),
   validations: {
-    fullname: {required},
+    username: {required},
     birthdate: {required},
     email: {email, required},
     city: {required},
     password: {required, minLength: minLength(6)}
   },
+  computed: {
+    loggedIn() {
+      return this.$store.state.auth.status.loggedIn;
+    },
+  },
+  mounted() {
+    if (this.loggedIn) {
+      this.$router.push("/profile");
+    }
+  },
   methods: {
-    submitHandler() {
-      if(this.$v.$invalid)
-      {
+    handleRegister(user) {
+      if (this.$v.$invalid) {
         this.$v.$touch();
         return;
       }
+      this.message = "";
+      this.successful = false;
+      this.loading = true;
 
-      const formData = {
-        fullname: this.fullname,
-        birthdate: this.birthdate,
-        sex: this.sex,
-        city: this.city,
-        email: this.email,
-        password: this.password,
-        experience: this.experience
-      }
-      console.log(formData);
-      this.$router.push('/');
-    }
-  }
+      this.$store.dispatch("auth/register", user).then(
+          (data) => {
+            this.message = data.message;
+            this.successful = true;
+            this.loading = false;
+          },
+          (error) => {
+            this.message =
+                (error.response &&
+                    error.response.data &&
+                    error.response.data.message) ||
+                error.message ||
+                error.toString();
+            this.successful = false;
+            this.loading = false;
+          }
+      );
+    },
+  },
 
 }
 </script>

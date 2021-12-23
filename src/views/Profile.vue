@@ -5,7 +5,7 @@
         <div class="block__personal__data">
           <div class="personal__data__left left">
             <div class="personal__data">
-              <span class="heading">Иванов Иван Иванович</span>
+              <span class="heading">{{currentUser.username}}</span>
               <img src="img/jam_write.png" class="jam__write">
             </div>
             <div class="personal__data">
@@ -72,7 +72,17 @@
 
 <script>
 export default {
-  name: "Profile"
+  name: "Profile",
+  computed: {
+    currentUser() {
+      return this.$store.state.auth.user;
+    }
+  },
+  mounted() {
+    if (!this.currentUser) {
+      this.$router.push('/login');
+    }
+  }
 }
 </script>
 
