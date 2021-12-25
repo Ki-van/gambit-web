@@ -17,19 +17,45 @@
           <img src="img/plug.png" class="img-fluid">
         </div>
       </div>
-      <ModelSectionLg />
-      <ModelSectionLg />
-      <ModelSectionLg />
+
+      <ModelSectionLg
+          v-for="chessboard in chessboards"
+          :chessboard="chessboard"
+          :key="chessboard.id"
+      />
     </div>
   </section>
 </template>
 
 <script>
 import ModelSectionLg from "../components/ModelSectionLg";
+import UserService from "../services/user.service";
+
 export default {
   name: "Products",
   components: {
     ModelSectionLg
+  },
+  data() {
+    return {
+      chessboards: null
+    }
+  },
+  mounted() {
+    UserService.getChessBoards().then(
+        (response) => {
+          this.chessboards = response.data;
+        },
+        (error) => {
+          let message =
+              (error.response &&
+                  error.response.data &&
+                  error.response.data.message) ||
+              error.message ||
+              error.toString();
+          console.error(message);
+        }
+    );
   }
 }
 </script>

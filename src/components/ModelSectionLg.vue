@@ -3,19 +3,15 @@
     <div class="row p-lg-5 p-md-3 p-sm-3 py-4 px-3">
       <div class="col-lg-6">
         <VueSlickCarousel v-bind="gallerySettings">
-          <div><img src="img/plug.png" class="img-fluid"></div>
-          <div><img src="img/plug.png" class="img-fluid"></div>
-          <div><img src="img/plug.png" class="img-fluid"></div>
-          <div><img src="img/plug.png" class="img-fluid"></div>
+          <div><img :src="chessboard.image" class="img-fluid"></div>
         </VueSlickCarousel>
       </div>
       <div class="col-lg-6 mt-sm-3 mt-3">
-        <h1>Модель 1</h1>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Habitant neque suspendisse diam id in semper
-          elementum. Felis, risus donec amet pretium. Sit ac in vel duis. Aliquam a pulvinar sed duis mus duis.</p>
+        <h1>{{chessboard.itemName}}</h1>
+        <p>{{chessboard.description}}</p>
         <p>Характеристики:</p>
-        <p>ШхДхВ - ____</p>
-        <span class="font-weight-bold" style="font-size: 1.5em">100$</span>
+        <p>ШхДхВ - {{chessboard.widthCm}}x{{chessboard.lengthCm}}x{{chessboard.heightCm}}</p>
+        <span class="font-weight-bold" style="font-size: 1.5em">{{chessboard.price}}$</span>
         <div class="flex__block">
           <div class="left">
             <button class="btn btn-primary">Купить</button>
@@ -48,6 +44,7 @@ export default {
     }
   },
   components: {VueSlickCarousel},
+  props: ['chessboard']
 }
 </script>
 
