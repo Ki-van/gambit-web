@@ -5,7 +5,7 @@
         <div class="col-12 col-md-9 col-lg-8 ">
           <div class="card shadow-2-strong" style="border-radius: 1rem;">
             <div class="row justify-content-end pt-4 pr-5" >
-              <button @click="CloseFrame" class="border-0 bg-white">
+              <button @click="this.$router.push('/')" class="border-0 bg-white">
                 <img src="/img/akar-icons_cross.svg" class=" img-fluid" style="width: 22px">
               </button>
 
@@ -23,11 +23,6 @@
 <script>
 export default {
   name: "EmptyLayout",
-  methods: {
-    CloseFrame() {
-      this.$router.go(-1);
-    }
-  }
 }
 </script>
 
