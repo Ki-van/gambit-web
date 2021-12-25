@@ -29,33 +29,20 @@
 
 <script>
 import ModelSectionLg from "../components/ModelSectionLg";
-import UserService from "../services/user.service";
+import {mapGetters} from "vuex";
 
 export default {
   name: "Products",
   components: {
     ModelSectionLg
   },
-  data() {
-    return {
-      chessboards: null
-    }
+  created() {
+    this.$store.dispatch('getChessboards');
   },
-  mounted() {
-    UserService.getChessBoards().then(
-        (response) => {
-          this.chessboards = response.data;
-        },
-        (error) => {
-          let message =
-              (error.response &&
-                  error.response.data &&
-                  error.response.data.message) ||
-              error.message ||
-              error.toString();
-          console.error(message);
-        }
-    );
+  computed: {
+    ...mapGetters([
+      'chessboards'
+    ])
   }
 }
 </script>

@@ -17,7 +17,7 @@
             <button class="btn btn-primary">Купить</button>
           </div>
           <div class="right">
-            <button class="btn btn-dark">В корзину</button>
+            <button class="btn btn-dark" @click="$store.dispatch('addCartItem', chessboard)">В корзину</button>
           </div>
         </div>
       </div>

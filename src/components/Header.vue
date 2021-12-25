@@ -11,13 +11,13 @@
               class="nav-item small">
             <a class="nav-link" href="">
               <img src="img/ion_cart-outline.svg" class="img-fluid heder__icon" alt="cart"/>
-              <span class="badge rounded-pill badge-notification bg-danger">1</span>
+              <span class="badge rounded-pill badge-notification bg-danger">{{cartCount}}</span>
             </a>
           </router-link>
           <div class="nav-item small">
             <a class="nav-link small" href="">
               <img src="img/ion_notifications-outline.svg" class="img-fluid heder__icon" alt="notify"/>
-              <span class="badge rounded-pill badge-notification bg-danger">1</span>
+              <span class="badge rounded-pill badge-notification bg-danger"></span>
             </a>
           </div>
       </div>
@@ -56,13 +56,13 @@
               class="nav-item big">
             <a class="nav-link" href="">
               <img src="img/ion_cart-outline.svg" class="img-fluid heder__icon" alt="cart"/>
-              <span class="badge rounded-pill badge-notification bg-danger">1</span>
+              <span class="badge rounded-pill badge-notification bg-danger">{{cartCount}}</span>
             </a>
           </router-link>
           <li class="nav-item big">
             <a class="nav-link" href="">
               <img src="img/ion_notifications-outline.svg" class="img-fluid heder__icon" alt="notify"/>
-              <span class="badge rounded-pill badge-notification bg-danger">1</span>
+              <span class="badge rounded-pill badge-notification bg-danger"></span>
             </a>
           </li>
         </ul>
@@ -72,6 +72,8 @@
 </template>
 
 <script>
+import {mapGetters} from "vuex";
+
 export default {
   name: "Header",
   data: () => {
@@ -84,7 +86,8 @@ export default {
         {title: 'О нас', url: '/about'}
       ]
     }
-  }
+  },
+  computed: mapGetters(['cartCount'])
 }
 </script>
 

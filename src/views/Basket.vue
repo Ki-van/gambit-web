@@ -8,8 +8,12 @@
         <a class="font-weight-lighter">очистить корзину</a>
       </div>
     </div>
-    <ModelSectionBasket />
-    <ModelSectionBasket />
+    <ModelSectionBasket
+      v-for="item in cartItems"
+      :item="item"
+      :key="item.id"
+    />
+
     <div class="row border-dark border mt-4 box__border">
       <div class="col">
         <span class="font-weight-bold">Способ доставки:</span>
@@ -37,10 +41,19 @@
 
 <script>
 import ModelSectionBasket from "../components/ModelSectionBasket";
+import {mapGetters} from "vuex";
 export default {
   name: "Basket",
   components: {
     ModelSectionBasket
+  },
+  computed: {
+    ...mapGetters([
+      'cartItems'
+    ])
+  },
+  created() {
+    this.$store.dispatch('getCartItems');
   }
 }
 </script>

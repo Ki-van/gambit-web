@@ -1,4 +1,4 @@
-import axios from 'axios';
+
 const state = {
     cartItems: []
 }
@@ -9,24 +9,28 @@ const mutations = {
 }
 const actions = {
     getCartItems ({ commit }) {
-        axios.get('/api/cart').then((response) => {
-            commit('UPDATE_CART_ITEMS', response.data)
-        });
+        commit('UPDATE_CART_ITEMS', JSON.parse(localStorage.getItem('cart')))
     },
     addCartItem ({ commit }, cartItem) {
-        axios.post('/api/cart', cartItem).then((response) => {
-            commit('UPDATE_CART_ITEMS', response.data)
-        });
+        let cart = JSON.parse(localStorage.getItem('cart'));
+        if(cart === null)
+            cart = [];
+        cart.push(cartItem);
+        localStorage.setItem('cart', JSON.stringify(cart));
+        commit('UPDATE_CART_ITEMS', cart);
     },
-    removeCartItem ({ commit }, cartItem) {
-        axios.delete('/api/cart/delete', cartItem).then((response) => {
+    removeCartItem ({ commit, state }, cartItem) {
+        commit('UPDATE_CART_ITEMS', state.cartItems.filter(item => item.id !== cartItem.id))
+       /* axios.delete('/api/cart/delete', cartItem).then((response) => {
             commit('UPDATE_CART_ITEMS', response.data)
-        });
+        });*/
     },
     removeAllCartItems ({ commit }) {
-        axios.delete('/api/cart/delete/all').then((response) => {
+        localStorage.removeItem('cart');
+        commit('UPDATE_CART_ITEMS', []);
+        /*axios.delete('/api/cart/delete/all').then((response) => {
             commit('UPDATE_CART_ITEMS', response.data)
-        });
+        });*/
     }
 }
 
@@ -41,7 +45,8 @@ const getters = {
         return state.cartItems.reduce((acc, cartItem) => {
             return cartItem.quantity + acc;
         }, 0);
-    }
+    },
+    cartCount: state => state.cartItems?.length
 }
 
 const cartModule = {

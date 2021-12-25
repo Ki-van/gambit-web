@@ -1,25 +1,26 @@
 import axios from 'axios';
 const state = {
-    productItems: []
+    chessboards: []
 }
+const API_URL = 'https://kafitis.intbel.ru/api/';
 const mutations = {
-  UPDATE_PRODUCT_ITEMS (state, payload) {
-    state.productItems = payload;
+  updateChessboards (state, payload) {
+    state.chessboards = payload;
   }
 }
 
 const actions = {
-  getProductItems ({ commit }) {
-    axios.get(`/api/products`).then((response) => {
-      commit('UPDATE_PRODUCT_ITEMS', response.data)
+  getChessboards ({ commit  }) {
+    axios.get(API_URL + `chessboards`).then((response) => {
+      commit('updateChessboards', response.data)
     });
   }
 }
 
 const getters = {
-    productItems: state => state.productItems,
+    chessboards: state => state.chessboards,
     productItemById: (state) => (id) => {
-        return state.productItems.find(productItem => productItem.id === id)
+        return state.chessboards.find(productItem => productItem.id === id)
     }
 }
 
