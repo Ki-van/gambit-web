@@ -72,8 +72,6 @@
 </template>
 
 <script>
-import {mapGetters} from "vuex";
-
 export default {
   name: "Header",
   data: () => {
@@ -87,7 +85,11 @@ export default {
       ]
     }
   },
-  computed: mapGetters(['cartCount'])
+  computed: {
+    cartCount(){
+      return this.$store.getters.cartCount === 0?'':this.$store.getters.cartCount
+    }
+  }
 }
 </script>
 

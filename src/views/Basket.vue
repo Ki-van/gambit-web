@@ -2,7 +2,7 @@
   <section class="container mt-5">
     <div class="row">
       <div class="col">
-        <h1 class="font-weight-bold">Корзина(2):</h1>
+        <h1 class="font-weight-bold">Корзина({{cartQuantity}}):</h1>
       </div>
       <div class="col text-right">
         <a class="font-weight-lighter">очистить корзину</a>
@@ -26,7 +26,7 @@
 
     <div class="row mt-4 ">
       <div class="col">
-        <h1 class="font-weight-bold">Общая сумма: <span style="color: #007bff">200$</span></h1>
+        <h1 class="font-weight-bold">Общая сумма: <span style="color: #007bff">{{cartTotal}}$</span></h1>
       </div>
       <div class="col d-flex justify-content-end">
         <button class="btn btn-primary align-self-center">Оплатить</button>
@@ -49,7 +49,9 @@ export default {
   },
   computed: {
     ...mapGetters([
-      'cartItems'
+      'cartItems',
+      'cartTotal',
+      'cartQuantity'
     ])
   },
   created() {

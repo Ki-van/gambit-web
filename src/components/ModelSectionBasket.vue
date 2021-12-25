@@ -15,8 +15,15 @@
         <h1>{{item.itemName}}</h1>
         <p>{{item.description}}</p>
         <div class="row ">
-          <div class="col"><h1 class="font-weight-bold">{{item.price}}$</h1></div>
-          <div class="col"><Counter class="mt-3"/></div>
+          <div class="col">
+            <h1 class="font-weight-bold">{{item.price}}$</h1>
+          </div>
+          <div class="col">
+            <Counter class="mt-3"
+              :value="item.quantity"
+              @input="counterHandler"
+            />
+          </div>
         </div>
       </div>
     </div>
@@ -43,7 +50,14 @@ export default {
     }
   },
   components: {VueSlickCarousel, Counter},
-  props: ['item']
+  props: ['item'],
+  methods: {
+    counterHandler(e){
+      this.item.quantity = e;
+      this.$store.dispatch('updateCartItem', this.item)
+      console.log(e)
+    }
+  }
 }
 </script>
 

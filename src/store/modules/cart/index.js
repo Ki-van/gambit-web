@@ -5,6 +5,7 @@ const state = {
 const mutations = {
   UPDATE_CART_ITEMS (state, payload) {
     state.cartItems = payload;
+    localStorage.setItem('cart', JSON.stringify(payload))
   }
 }
 const actions = {
@@ -15,12 +16,17 @@ const actions = {
         let cart = JSON.parse(localStorage.getItem('cart'));
         if(cart === null)
             cart = [];
+        cartItem.quantity = 1
         cart.push(cartItem);
-        localStorage.setItem('cart', JSON.stringify(cart));
         commit('UPDATE_CART_ITEMS', cart);
+    },
+    updateCartItem({commit, state}, cartItem) {
+        state.cartItems[state.cartItems.findIndex((el) => el.id === cartItem.id)].quantity = cartItem.quantity
+        commit('UPDATE_CART_ITEMS', state.cartItems)
     },
     removeCartItem ({ commit, state }, cartItem) {
         commit('UPDATE_CART_ITEMS', state.cartItems.filter(item => item.id !== cartItem.id))
+
        /* axios.delete('/api/cart/delete', cartItem).then((response) => {
             commit('UPDATE_CART_ITEMS', response.data)
         });*/
