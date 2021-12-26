@@ -16,6 +16,12 @@ export default {
   components: {
     'empty-layout': EmptyLayout,
     MainLayout
+  },
+  async mounted() {
+    if(JSON.parse(localStorage.getItem('access-token'))) {
+      await this.$store.dispatch('auth/loginByStoredToken')
+      console.log(this.$store.state.auth.user)
+    }
   }
 }
 </script>

@@ -11,8 +11,8 @@
         <input
             type="text"
             class="form-control"
-            id="fullname"
-            placeholder="Имя"
+            id="username"
+            placeholder="Псевдоним"
             v-model.trim="username"
             :class="{'is-invalid': $v.username.$dirty && (!$v.username.required)}"
         >
@@ -22,27 +22,13 @@
         </div>
       </div>
 
-      <div class="mb-3">
-        <input
-            class="form-control"
-            type="date"
-            data-date-format='yyyy-mm-dd'
-            v-model.trim="birthdate"
-            :class="{'is-invalid': $v.birthdate.$dirty && !$v.birthdate.required}"
-        >
-        <div class="invalid-feedback"
-             v-if="$v.birthdate.$dirty && !$v.birthdate.required">
-          Это поле не должно быть пустым
-        </div>
-      </div>
-
       <div class="btn-group  btn-group-toggle d-flex" data-toggle="buttons">
         <label class="btn btn-secondary active">
-          <input type="radio" id="male" value="male" @click="sex = 1">
+          <input type="radio" id="male" value="male" @click="gender = 1">
           Мужчина
         </label>
         <label class="btn btn-secondary">
-          <input type="radio" id="female" value="female" @click="sex = 2">
+          <input type="radio" id="female" value="female" @click="gender = 2">
           Женщина
         </label>
       </div>
@@ -70,6 +56,8 @@
             v-model.trim="email"
             :class="{'is-invalid': ($v.email.$dirty) && !$v.email.required || ($v.email.$dirty) && !$v.email.email}"
         >
+
+
         <div class="invalid-feedback"
              v-if="($v.email.$dirty) && !$v.email.required">
           Введите Email
@@ -79,6 +67,7 @@
           Введите корректный Email
         </div>
       </div>
+
 
       <div class="mb-3 mt-3">
         <input type="password"
@@ -100,7 +89,12 @@
       </div>
 
       <div class="mb-3 mt-3">
-        <input type="text" class="form-control" id="exp" placeholder="Расскажите о вашем опыте" name="exp">
+        <input type="text"
+               class="form-control"
+               id="exp"
+               placeholder="Расскажите о вашем опыте"
+               name="exp"
+               v-model.trim="experience">
       </div>
       <div class="center">
         <button type="submit" class="btn btn-primary col col-lg-4" :disabled="loading">
@@ -141,8 +135,7 @@ export default {
   name: "Register",
   data: () => ({
     username: '',
-    birthdate: '',
-    sex: '',
+    gender: 1,
     city: '',
     email: '',
     password: '',
@@ -153,7 +146,6 @@ export default {
   }),
   validations: {
     username: {required},
-    birthdate: {required},
     email: {email, required},
     city: {required},
     password: {required, minLength: minLength(6)}
@@ -169,20 +161,40 @@ export default {
     }
   },
   methods: {
-    handleRegister(user) {
+    removeEmpty(obj) {
+      return Object.fromEntries(
+          Object.entries(obj)
+              // eslint-disable-next-line no-unused-vars
+              .filter(([_, v]) => v != null && v !=='')
+              .map(([k, v]) => [k, v === Object(v) ? this.removeEmpty(v) : v])
+      );
+    },
+    handleRegister() {
+      console.log("Handle Register");
       if (this.$v.$invalid) {
         this.$v.$touch();
         return;
       }
+      let user = {
+        "username": this.username,
+        "password": this.password,
+        "email": this.email,
+        "is_active": true,
+        "account": {
+          "city": this.city,
+          "experience": this.experience,
+          "gender": this.gender,
+        }
+      }
+
       this.message = "";
       this.successful = false;
       this.loading = true;
 
-      this.$store.dispatch("auth/register", user).then(
-          (data) => {
-            this.message = data.message;
-            this.successful = true;
-            this.loading = false;
+      this.$store.dispatch("auth/register", this.removeEmpty(user)).then(
+          (response) => {
+            console.log(response);
+            this.$router.push("/login");
           },
           (error) => {
             this.message =

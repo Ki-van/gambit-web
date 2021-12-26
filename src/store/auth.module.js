@@ -21,6 +21,11 @@ export const auth = {
                 }
             );
         },
+        async loginByStoredToken({commit}) {
+            let user = await AuthService.getUser();
+            commit('loginSuccess', user);
+            return user;
+        },
         logout({ commit }) {
             AuthService.logout();
             commit('logout');
@@ -46,6 +51,7 @@ export const auth = {
         loginFailure(state) {
             state.status.loggedIn = false;
             state.user = null;
+
         },
         logout(state) {
             state.status.loggedIn = false;
