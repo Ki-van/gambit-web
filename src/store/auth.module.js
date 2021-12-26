@@ -22,6 +22,7 @@ export const auth = {
             );
         },
         async loginByStoredToken({commit}) {
+            await AuthService.refreshToken();
             let user = await AuthService.getUser();
             commit('loginSuccess', user);
             return user;

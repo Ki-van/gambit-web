@@ -11,8 +11,8 @@ class AuthService {
             password: user.password
         })
         if (response.data.access && response.data.refresh) {
-            localStorage.setItem('access-token', JSON.stringify(response.data.access));
-            localStorage.setItem('refresh-token', JSON.stringify(response.data.refresh));
+            localStorage.setItem('access-token', response.data.access);
+            localStorage.setItem('refresh-token', response.data.refresh);
             let user = await this.getUser();
             console.log(user);
             return Promise.resolve(user);
@@ -30,6 +30,12 @@ class AuthService {
 
     register(user) {
         return axios.post(API_URL + "users/", user);
+    }
+
+    async refreshToken() {
+        let response = await axios.post(API_URL + "token/refresh", {refresh: localStorage.getItem('refresh-token')});
+        localStorage.setItem('access-token', response.data.access);
+        return response.data.access;
     }
 }
 

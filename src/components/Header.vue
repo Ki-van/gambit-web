@@ -24,7 +24,7 @@
       <div class="navbar-collapse collapse dual-nav w-50 order-1 order-md-0">
         <ul class="navbar-nav center">
           <router-link
-              to="/register"
+              :to="userPath"
               tag="li"
               class="nav-item big">
             <a class="nav-link p-0" href="#">
@@ -88,6 +88,9 @@ export default {
   computed: {
     cartCount(){
       return this.$store.getters.cartCount === 0?'':this.$store.getters.cartCount
+    },
+    userPath(){
+      return this.$store.state.auth.status.loggedIn?'/profile':'/login';
     }
   }
 }
