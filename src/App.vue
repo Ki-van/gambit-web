@@ -159,7 +159,9 @@ footer{
 .about__img{
   width: 80%;
 }
-
+.img__bot{
+  margin-bottom: -50px;
+}
 .right{
   justify-content: right !important;
   text-align: right !important;

@@ -16,9 +16,9 @@
             <span class="font-weight-bold" style="font-size: 1.5em">{{chessboard.price}}$</span>
           </div>
           <div class="right">
-            <img src="img/derevo.png" class="radio__btn">
-            <img src="img/metal.png" class="radio__btn">
-            <img src="img/plastik.png" class="radio__btn">
+            <img onclick="derevo" src="img/derevo.png" class="radio__btn">
+            <img onclick="metal" src="img/metal.png" class="radio__btn">
+            <img onclick="plastik" src="img/plastik.png" class="radio__btn">
           </div>
         </div>
         <div class="flex__block">
@@ -53,7 +53,7 @@ export default {
     }
   },
   components: {VueSlickCarousel},
-  props: ['chessboard']
+  props: ['chessboard'],
 }
 </script>
 

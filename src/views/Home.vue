@@ -100,7 +100,7 @@
       <div class="row">
         <div class="col-lg-6 ">
           <VueSlickCarousel v-bind="gallerySettings">
-            <div><img src="img/hand.png" class="img-fluid"></div>
+            <div><img src="img/hand.png" class="img-fluid img__bot"></div>
           </VueSlickCarousel>
         </div>
         <div class="col-lg-6 mt-2">
