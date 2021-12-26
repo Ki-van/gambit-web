@@ -146,9 +146,11 @@ footer{
 }
 
 .radio__btn{
+  margin-left: 5px;
+  margin-right: 5px;
   width: 30px;
   height: 30px;
-  opacity: .7;
+  opacity: .8;
 }
 .radio__btn:hover{
   opacity: 1;

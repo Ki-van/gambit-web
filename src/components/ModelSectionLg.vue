@@ -16,9 +16,9 @@
             <span class="font-weight-bold" style="font-size: 1.5em">{{chessboard.price}}$</span>
           </div>
           <div class="right">
-            <img src="img/black.png" class="radio__btn">
-            <img src="img/blue.png" class="radio__btn">
-            <img src="img/pink.png" class="radio__btn">
+            <img src="img/derevo.png" class="radio__btn">
+            <img src="img/metal.png" class="radio__btn">
+            <img src="img/plastik.png" class="radio__btn">
           </div>
         </div>
         <div class="flex__block">
