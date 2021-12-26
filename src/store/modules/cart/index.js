@@ -12,13 +12,16 @@ const actions = {
     getCartItems ({ commit }) {
         commit('UPDATE_CART_ITEMS', JSON.parse(localStorage.getItem('cart')))
     },
-    addCartItem ({ commit }, cartItem) {
-        let cart = JSON.parse(localStorage.getItem('cart'));
+    addCartItem ({ commit, state }, cartItem) {
+        let cart = state.cartItems;
         if(cart === null)
-            cart = [];
-        cartItem.quantity = 1
-        cart.push(cartItem);
-        commit('UPDATE_CART_ITEMS', cart);
+            cart = []
+        if(cart.filter(el => el.id === cartItem.id).length === 0)
+        {
+            cartItem.quantity = 1
+            cart.push(cartItem);
+            commit('UPDATE_CART_ITEMS', cart);
+        }
     },
     updateCartItem({commit, state}, cartItem) {
         state.cartItems[state.cartItems.findIndex((el) => el.id === cartItem.id)].quantity = cartItem.quantity

@@ -5,7 +5,9 @@
         <h1 class="font-weight-bold">Корзина({{cartQuantity}}):</h1>
       </div>
       <div class="col text-right">
-        <a class="font-weight-lighter">очистить корзину</a>
+        <a class="font-weight-lighter" style="cursor: pointer"
+        @click="$store.dispatch('removeAllCartItems')"
+        >Очистить корзину</a>
       </div>
     </div>
     <ModelSectionBasket
