@@ -58,8 +58,15 @@ p {
   font-family: "Josefin Sans", serif;
 }
 
+html {
+  position: relative !important;
+  min-height: 100%;
+}
+
 footer{
   background-color: #5B5C5E;
+  position: absolute;
+  width: 100%;
 }
 
 .box__border{
@@ -127,6 +134,30 @@ footer{
   text-align: left !important;
 }
 
+.btn-basket, .btn-buy{
+  width: 200px;
+  height: 40px;
+
+  font-family: Josefin Sans;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 34px;
+  line-height: 30px;
+}
+
+.radio__btn{
+  width: 30px;
+  height: 30px;
+  opacity: .7;
+}
+.radio__btn:hover{
+  opacity: 1;
+}
+
+.about__img{
+  width: 80%;
+}
+
 .right{
   justify-content: right !important;
   text-align: right !important;
@@ -134,6 +165,10 @@ footer{
 
 .ptop30{
   padding-top: 30px;
+}
+
+.mtopf{
+  padding-top: 50px !important;
 }
 
 .social_block{

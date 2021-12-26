@@ -11,13 +11,22 @@
         <p>{{chessboard.description}}</p>
         <p>Характеристики:</p>
         <p>ШхДхВ - {{chessboard.widthCm}}x{{chessboard.lengthCm}}x{{chessboard.heightCm}}</p>
-        <span class="font-weight-bold" style="font-size: 1.5em">{{chessboard.price}}$</span>
         <div class="flex__block">
           <div class="left">
-            <button class="btn btn-primary">Купить</button>
+            <span class="font-weight-bold" style="font-size: 1.5em">{{chessboard.price}}$</span>
           </div>
           <div class="right">
-            <button class="btn btn-dark" @click="$store.dispatch('addCartItem', chessboard)">В корзину</button>
+            <img src="img/black.png" class="radio__btn">
+            <img src="img/blue.png" class="radio__btn">
+            <img src="img/pink.png" class="radio__btn">
+          </div>
+        </div>
+        <div class="flex__block">
+          <div class="left">
+            <button class="btn btn-primary btn-buy">Купить</button>
+          </div>
+          <div class="right">
+            <button class="btn btn-dark btn-basket" @click="$store.dispatch('addCartItem', chessboard)">В корзину</button>
           </div>
         </div>
       </div>
@@ -52,4 +61,14 @@ export default {
 .left, .right{
   width: 50%;
 }
+
+@media (max-width: 588px) {
+  .left, .right{
+    padding-top: 5px;
+    text-align: center !important;
+    justify-content: center !important;
+    width: 100%;
+  }
+}
+
 </style>

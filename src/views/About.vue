@@ -11,15 +11,15 @@
         их разделяет.
       </p>
     </div>
-    <img src="img/plug.png" class="img-fluid  d-flex mx-auto"/>'
-    <div class="row">
+    <img src="img/Doska_all.png" class="img-fluid d-flex mx-auto about__img"/>
+    <div class="row ptop30">
       <div class="col-lg">
         <h1>Доставка и оплата</h1>
         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate hic quam quo recusandae. A earum eius eligendi excepturi labore, magnam maxime porro quaerat quam quibusdam saepe suscipit vel veniam voluptas.</p>
         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate hic quam quo recusandae. A earum eius eligendi excepturi labore, magnam maxime porro quaerat quam quibusdam saepe suscipit vel veniam voluptas.</p>
         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate hic quam quo recusandae. A earum eius eligendi excepturi labore, magnam maxime porro quaerat quam quibusdam saepe suscipit vel veniam voluptas.</p>
       </div>
-      <div class="col-lg">
+      <div class="col-lg ptop30">
         <img src="img/pochta_rossii.png" class="img-fluid row mx-auto mb-5" />
         <img src="img/cdek.png" class="img-fluid row mx-auto mb-5" />
         <img src="img/boxberry.png" class="img-fluid row mx-auto mb-5" />

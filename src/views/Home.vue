@@ -18,10 +18,7 @@
         </div>
         <div class="col-lg-6 mt-2">
           <VueSlickCarousel v-bind="gallerySettings">
-            <div><img src="img/plug.png" class="img-fluid"></div>
-            <div><img src="img/plug.png" class="img-fluid"></div>
-            <div><img src="img/plug.png" class="img-fluid"></div>
-            <div><img src="img/plug.png" class="img-fluid"></div>
+            <div><img src="img/teble_top.png" class="img-fluid"></div>
           </VueSlickCarousel>
         </div>
       </div>
@@ -42,7 +39,7 @@
       </div>
       <div class="row justify-content-around ">
         <div class="col-lg card card__st">
-          <img class="card-img-top img-fluid mt-3 p-3" src="img/plug.png" alt="">
+          <img class="card-img-top img-fluid mt-3 p-3" src="img/bord_1.png" alt="">
           <div class="card-body">
             <div class="row font-weight-bold text-white text__model">
               <div class="col ">
@@ -53,7 +50,7 @@
           </div>
         </div>
         <div class="col-lg card card__st">
-          <img class="card-img-top img-fluid mt-3 p-3" src="img/plug.png" alt="">
+          <img class="card-img-top img-fluid mt-3 p-3" src="img/bord_2.png" alt="">
           <div class="card-body">
             <div class="row font-weight-bold text-white text__model">
               <div class="col ">
@@ -64,7 +61,7 @@
           </div>
         </div>
         <div class="col-lg card card__st">
-          <img class="card-img-top img-fluid mt-3 p-3" src="img/plug.png" alt="">
+          <img class="card-img-top img-fluid mt-3 p-3" src="img/bord_3.png" alt="">
           <div class="card-body">
             <div class="row font-weight-bold text-white text__model">
               <div class="col ">
@@ -93,10 +90,7 @@
         </div>
         <div class="col-lg-6 mt-2">
           <VueSlickCarousel v-bind="gallerySettings">
-            <div><img src="img/plug.png" class="img-fluid"></div>
-            <div><img src="img/plug.png" class="img-fluid"></div>
-            <div><img src="img/plug.png" class="img-fluid"></div>
-            <div><img src="img/plug.png" class="img-fluid"></div>
+            <div><img src="img/teble_left.png" class="img-fluid"></div>
           </VueSlickCarousel>
         </div>
       </div>
@@ -106,10 +100,7 @@
       <div class="row">
         <div class="col-lg-6 ">
           <VueSlickCarousel v-bind="gallerySettings">
-            <div><img src="img/plug.png" class="img-fluid"></div>
-            <div><img src="img/plug.png" class="img-fluid"></div>
-            <div><img src="img/plug.png" class="img-fluid"></div>
-            <div><img src="img/plug.png" class="img-fluid"></div>
+            <div><img src="img/hand.png" class="img-fluid"></div>
           </VueSlickCarousel>
         </div>
         <div class="col-lg-6 mt-2">

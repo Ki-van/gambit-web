@@ -14,7 +14,7 @@
 
         </div>
         <div class="col-lg-6 mt-2">
-          <img src="img/plug.png" class="img-fluid">
+          <img src="img/Iphone_13.png" class="img-fluid">
         </div>
       </div>
 
