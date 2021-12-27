@@ -20,7 +20,6 @@ export default {
   async mounted() {
     if( !this.$store.state.auth.status.loggedIn && localStorage.getItem('access-token')) {
       await this.$store.dispatch('auth/loginByStoredToken')
-      console.log(this.$store.state.auth.user)
     }
   }
 }

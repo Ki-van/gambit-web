@@ -8,12 +8,15 @@
     <div class="row p-lg-5 p-md-3 p-sm-3 px-3 my-2">
       <div class="col-lg-6">
         <VueSlickCarousel v-bind="gallerySettings">
-          <div><img :src="item.image" class="img-fluid"></div>
+          <div><img :src="item.options[item.optionNumber].image" class="img-fluid"></div>
         </VueSlickCarousel>
       </div>
       <div class="col-lg-6 mt-sm-4 mt-lg-0 mb-3">
         <h1>{{item.itemName}}</h1>
         <p>{{item.description}}</p>
+        <p>Характеристики:</p>
+        <p>ШхДхВ - {{item.widthCm}}x{{item.lengthCm}}x{{item.heightCm}}</p>
+        <p>Материал - {{item.options[item.optionNumber].name}}</p>
         <div class="row ">
           <div class="col">
             <h1 class="font-weight-bold">{{item.price}}$</h1>

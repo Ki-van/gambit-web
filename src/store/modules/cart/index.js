@@ -6,16 +6,17 @@ const API_URL = 'https://kafitis.intbel.ru/api/';
 const state = {
     cartItems: [],
     deliveryAddress: {
-        resieverFullname: '',
-        resieverNumber: '',
-        resieverEmail: '',
-        city: '',
+        resieverName: 'Имя получателя',
+        resieverNumber: '88005553353',
+        resieverEmail: 'resiever@mail.ru',
+        city: 'Белгород',
         street: '',
         postalCode: '',
         houseNumber: '',
         apartment: ''
     },
-    deliveryMethods: []
+    deliveryMethods: [],
+    selectedDeliveryMethod: 1
 }
 const mutations = {
     UPDATE_CART_ITEMS(state, payload) {
@@ -47,6 +48,11 @@ const actions = {
             cart.push(cartItem);
             commit('UPDATE_CART_ITEMS', cart);
         }
+    },
+    // eslint-disable-next-line no-unused-vars
+    async addOrder({commit, state}, order) {
+      let response = await axios.post(API_URL + 'orders/', order);
+      return response.data;
     },
     updateCartItem({commit, state}, cartItem) {
         state.cartItems[state.cartItems.findIndex((el) => el.id === cartItem.id)].quantity = cartItem.quantity
@@ -82,6 +88,15 @@ const getters = {
     },
     cartCount: state => state.cartItems?.length,
     deliveryMethods: state => state.deliveryMethods,
+    deliveryAddressStringify: state => {
+        if(state.deliveryAddress.city === '')
+            return "Адрес не задан"
+        else
+            return "г." + state.deliveryAddress.city + ", ул." + state.deliveryAddress.street + ", д." +
+            state.deliveryAddress.houseNumber + ", кв." + state.deliveryAddress.apartment
+    },
+    deliveryAddress: state=> state.deliveryAddress,
+    selectedDeliveryMethod: state => state.selectedDeliveryMethod
 }
 
 const cartModule = {
