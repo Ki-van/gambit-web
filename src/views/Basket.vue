@@ -76,12 +76,10 @@ export default {
           //optionName: this.cartItems[i].options[this.cartItems[i].optionNumber].name
         })
       }
-      this.$store.dispatch('addOrder', order)
-
-          /*.finally(()=> {
+      this.$store.dispatch('addOrder', order).finally(()=> {
             this.$store.dispatch('removeAllCartItems');
             this.$router.push('/profile')
-          });*/
+          });
     }
   },
   computed: {
