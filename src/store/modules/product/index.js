@@ -10,9 +10,10 @@ const mutations = {
 }
 
 const actions = {
-  getChessboards ({ commit  }) {
+    getChessboards ({ commit  }) {
     axios.get(API_URL + `chessboards`).then((response) => {
       commit('updateChessboards', response.data)
+        console.log(response.data);
     });
   }
 }

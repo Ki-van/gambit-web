@@ -22,7 +22,7 @@
         <span class="d-block"> Курьером до двери (<span style="color: #007bff">+10$</span>)</span>
       </div>
       <div class="col d-flex align-content-center right">
-        <a class="align-self-center right">Изменить способ доставки</a>
+        <a class="align-self-center right" style="cursor: pointer" @click="$router.push('/basket/delivery')">Изменить способ доставки</a>
       </div>
     </div>
 
@@ -48,6 +48,9 @@ export default {
   name: "Basket",
   components: {
     ModelSectionBasket
+  },
+  data(){
+    return {}
   },
   computed: {
     ...mapGetters([

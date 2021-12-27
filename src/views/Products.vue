@@ -36,8 +36,8 @@ export default {
   components: {
     ModelSectionLg
   },
-  created() {
-    this.$store.dispatch('getChessboards');
+  async mounted() {
+    await this.$store.dispatch('getChessboards');
   },
   computed: {
     ...mapGetters([

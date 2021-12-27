@@ -3,7 +3,7 @@
     <div class="row p-lg-5 p-md-3 p-sm-3 py-4 px-3">
       <div class="col-lg-6">
         <VueSlickCarousel v-bind="gallerySettings">
-          <div><img :src="chessboard.image" class="img-fluid"></div>
+          <div><img :src="chessboard.options[optionNumber].image" class="img-fluid"></div>
         </VueSlickCarousel>
       </div>
       <div class="col-lg-6 mt-sm-3 mt-3">
@@ -11,14 +11,15 @@
         <p>{{chessboard.description}}</p>
         <p>Характеристики:</p>
         <p>ШхДхВ - {{chessboard.widthCm}}x{{chessboard.lengthCm}}x{{chessboard.heightCm}}</p>
+        <p>Материал корпуса - {{chessboard.options[optionNumber].name}}</p>
         <div class="flex__block">
           <div class="left">
-            <span class="font-weight-bold" style="font-size: 1.5em">{{chessboard.price}}$</span>
+            <span class="font-weight-bold" style="font-size: 1.5em">{{chessboard.price}}Р</span>
           </div>
           <div class="right">
-            <img src="img/derevo.png" class="radio__btn">
-            <img src="img/metal.png" class="radio__btn">
-            <img src="img/plastik.png" class="radio__btn">
+            <img src="img/derevo.png" class="radio__btn" @click="optionNumber = 0">
+            <img src="img/metal.png" class="radio__btn" @click="optionNumber = 1">
+            <img src="img/plastik.png" class="radio__btn" @click="optionNumber = 2">
           </div>
         </div>
         <div class="flex__block">
@@ -26,7 +27,10 @@
             <button class="btn btn-primary btn-buy">Купить</button>
           </div>
           <div class="right">
-            <button class="btn btn-dark btn-basket" @click="$store.dispatch('addCartItem', chessboard)">В корзину</button>
+            <button class="btn btn-dark btn-basket"
+                    @click="chessboard.optionNumber =optionNumber;
+                     $store.dispatch('addCartItem', chessboard)"
+            >В корзину</button>
           </div>
         </div>
       </div>
@@ -49,11 +53,15 @@ export default {
         "arrows": false,
         "slidesToShow": 1,
         "slidesToScroll": 1
-      }
+      },
+      optionNumber: 0
     }
   },
   components: {VueSlickCarousel},
-  props: ['chessboard']
+  props: ['chessboard'],
+  created() {
+    console.log(this.chessboard);
+  }
 }
 </script>
 

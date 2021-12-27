@@ -1,23 +1,48 @@
+import axios from "axios";
+import authHeader from "../../../services/auth-header";
+
+const API_URL = 'https://kafitis.intbel.ru/api/';
 
 const state = {
-    cartItems: []
+    cartItems: [],
+    deliveryAddress: {
+        resieverFullname: '',
+        resieverNumber: '',
+        resieverEmail: '',
+        city: '',
+        street: '',
+        postalCode: '',
+        houseNumber: '',
+        apartment: ''
+    },
+    deliveryMethods: []
 }
 const mutations = {
-  UPDATE_CART_ITEMS (state, payload) {
-    state.cartItems = payload;
-    localStorage.setItem('cart', JSON.stringify(payload))
-  }
+    UPDATE_CART_ITEMS(state, payload) {
+        state.cartItems = payload;
+        localStorage.setItem('cart', JSON.stringify(payload))
+    },
+    updateDeliveryAddress(state, payload) {
+        state.deliveryAddress = payload;
+        localStorage.setItem('delivery-address', JSON.stringify(payload));
+    },
+    updateDeliveryMethods(state, payload) {
+        state.deliveryMethods = payload
+    }
 }
 const actions = {
-    getCartItems ({ commit }) {
+    async getDeliveryMethods({commit}) {
+        let response = await axios.get(API_URL + 'deliveryMethods/', { headers: authHeader() });
+        commit('updateDeliveryMethods', response.data);
+    },
+    getCartItems({commit}) {
         commit('UPDATE_CART_ITEMS', JSON.parse(localStorage.getItem('cart')))
     },
-    addCartItem ({ commit, state }, cartItem) {
+    addCartItem({commit, state}, cartItem) {
         let cart = state.cartItems;
-        if(cart === null)
+        if (cart === null)
             cart = []
-        if(cart.filter(el => el.id === cartItem.id).length === 0)
-        {
+        if (cart.filter(el => el.id === cartItem.id).length === 0) {
             cartItem.quantity = 1
             cart.push(cartItem);
             commit('UPDATE_CART_ITEMS', cart);
@@ -27,14 +52,14 @@ const actions = {
         state.cartItems[state.cartItems.findIndex((el) => el.id === cartItem.id)].quantity = cartItem.quantity
         commit('UPDATE_CART_ITEMS', state.cartItems)
     },
-    removeCartItem ({ commit, state }, cartItem) {
+    removeCartItem({commit, state}, cartItem) {
         commit('UPDATE_CART_ITEMS', state.cartItems.filter(item => item.id !== cartItem.id))
 
-       /* axios.delete('/api/cart/delete', cartItem).then((response) => {
-            commit('UPDATE_CART_ITEMS', response.data)
-        });*/
+        /* axios.delete('/api/cart/delete', cartItem).then((response) => {
+             commit('UPDATE_CART_ITEMS', response.data)
+         });*/
     },
-    removeAllCartItems ({ commit }) {
+    removeAllCartItems({commit}) {
         localStorage.removeItem('cart');
         commit('UPDATE_CART_ITEMS', []);
         /*axios.delete('/api/cart/delete/all').then((response) => {
@@ -55,7 +80,8 @@ const getters = {
             return cartItem.quantity + acc;
         }, 0);
     },
-    cartCount: state => state.cartItems?.length
+    cartCount: state => state.cartItems?.length,
+    deliveryMethods: state => state.deliveryMethods,
 }
 
 const cartModule = {
