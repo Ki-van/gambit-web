@@ -58,6 +58,11 @@
       <div class="left ptop30">
         <div class="flex__block ptop30">
           <div class="flex__block__half"><span class="title__text">Мои заказы:</span></div>
+          <div v-for="order in orders" :key="order.orderDate">
+           <a>Заказ от {{order.orderDate}}</a>
+            <a>{{order.orderItems}}</a>
+
+          </div>
         </div>
         <div>
           <div class="ptop30">
@@ -70,17 +75,31 @@
 </template>
 
 <script>
+import UserService from "../services/user.service";
+
 export default {
   name: "Profile",
+  data() {
+    return {
+      orders: null
+    }
+  },
   computed: {
     currentUser() {
       return this.$store.state.auth.user;
+    },
+    chessboards(){
+      return this.$store.getters.chessboards;
     }
   },
-  mounted() {
+ async mounted() {
     if (!this.currentUser) {
       this.$router.push('/login');
     }
+    this.orders = await UserService.getUserOrders();
+    console.log(this.orders);
+
+    await this.$store.dispatch('getChessboards');
   }
 }
 </script>

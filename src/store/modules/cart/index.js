@@ -51,7 +51,7 @@ const actions = {
     },
     // eslint-disable-next-line no-unused-vars
     async addOrder({commit, state}, order) {
-      let response = await axios.post(API_URL + 'orders/', order);
+      let response = await axios.post(API_URL + 'orders/', order, {headers: authHeader()});
       return response.data;
     },
     updateCartItem({commit, state}, cartItem) {

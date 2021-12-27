@@ -5,8 +5,9 @@ const API_URL = 'https://kafitis.intbel.ru/api/';
 
 class UserService {
 
-    getUserOrders() {
-        return axios.get(API_URL + 'orders', { headers: authHeader() });
+   async getUserOrders() {
+        let response = await axios.get(API_URL + 'orders', { headers: authHeader() });
+        return response.data;
     }
 }
 

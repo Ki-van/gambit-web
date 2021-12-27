@@ -22,7 +22,7 @@
         <span class="d-block"> {{ deliveryMethods[selectedDeliveryMethod].name }} (<span style="color: #007bff">{{addedCost}}</span>)</span>
       </div>
       <div class="col d-flex align-content-center right">
-        <a class="align-self-center right" style="cursor: pointer" @click="$router.push('/basket/delivery')">Изменить способ доставки</a>
+        <a class="align-self-center right" style="cursor: pointer" @click="$router.push('/basket/delivery/address')">Изменить адрес доставки</a>
       </div>
     </div>
 
@@ -58,11 +58,11 @@ export default {
   methods: {
     buy(){
       let order = {
-        "deliveryMethod": this.selectedDeliveryMethod,
+        "deliveryMethod": 1,
         "isActive": true,
         "isPaid": true,
         "comment": this.comment,
-        "deliveryCompany": this.deliveryMethods[this.selectedDeliveryMethod].name,
+        "deliveryCompany": "Почта России",
         "recipientName": this.deliveryAddress.resieverName,
         "recipientPhoneNumber": this.deliveryAddress.resieverNumber,
         "recipientEmailAddress": this.deliveryAddress.resieverEmail,
@@ -76,11 +76,12 @@ export default {
           //optionName: this.cartItems[i].options[this.cartItems[i].optionNumber].name
         })
       }
-      this.$store.dispatch('addOrder', order).then(() => {
-        this.$store.dispatch('removeAllCartItems')
+      this.$store.dispatch('addOrder', order)
 
-      }).finally(()=> this.$router.push('/profile'));
-
+          /*.finally(()=> {
+            this.$store.dispatch('removeAllCartItems');
+            this.$router.push('/profile')
+          });*/
     }
   },
   computed: {
