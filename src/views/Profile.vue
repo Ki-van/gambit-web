@@ -60,7 +60,7 @@
           <div class="flex__block__half"><span class="title__text">Мои заказы:</span></div>
           <div v-for="order in orders" :key="order.orderDate">
            <a>Заказ от {{order.orderDate}}</a>
-            <a>{{order.orderItems}}</a>
+            <a>order</a>
 
           </div>
         </div>
