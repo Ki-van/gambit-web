@@ -1,7 +1,6 @@
 <template>
   <div class="p-2">
-    <form @submit.prevent="submitHandler">
-
+    <form @submit.prevent="handleRegister">
       <div>
         <img src="img/avatar.png" class="img-fluid d-flex mx-auto"/>
       </div>
@@ -12,38 +11,24 @@
         <input
             type="text"
             class="form-control"
-            id="fullname"
-            placeholder="Фамилия Имя"
-            v-model.trim="fullname"
-            :class="{'is-invalid': $v.fullname.$dirty && (!$v.fullname.required)}"
+            id="username"
+            placeholder="Псевдоним"
+            v-model.trim="username"
+            :class="{'is-invalid': $v.username.$dirty && (!$v.username.required)}"
         >
         <div class="invalid-feedback"
-             v-if="$v.fullname.$dirty && !$v.fullname.required">
-          Это поле не должно быть пустым
-        </div>
-      </div>
-
-      <div class="mb-3">
-        <input
-            class="form-control"
-            type="date"
-            data-date-format='yyyy-mm-dd'
-            v-model.trim="birthdate"
-            :class="{'is-invalid': $v.birthdate.$dirty && !$v.birthdate.required}"
-        >
-        <div class="invalid-feedback"
-             v-if="$v.birthdate.$dirty && !$v.birthdate.required">
+             v-if="$v.username.$dirty && !$v.username.required">
           Это поле не должно быть пустым
         </div>
       </div>
 
       <div class="btn-group  btn-group-toggle d-flex" data-toggle="buttons">
         <label class="btn btn-secondary active">
-          <input type="radio" id="male" value="male" v-model="sex">
+          <input type="radio" id="male" value="male" @click="gender = 1">
           Мужчина
         </label>
         <label class="btn btn-secondary">
-          <input type="radio"  id="female" value="female" v-model="sex">
+          <input type="radio" id="female" value="female" @click="gender = 2">
           Женщина
         </label>
       </div>
@@ -71,6 +56,8 @@
             v-model.trim="email"
             :class="{'is-invalid': ($v.email.$dirty) && !$v.email.required || ($v.email.$dirty) && !$v.email.email}"
         >
+
+
         <div class="invalid-feedback"
              v-if="($v.email.$dirty) && !$v.email.required">
           Введите Email
@@ -80,6 +67,7 @@
           Введите корректный Email
         </div>
       </div>
+
 
       <div class="mb-3 mt-3">
         <input type="password"
@@ -101,10 +89,28 @@
       </div>
 
       <div class="mb-3 mt-3">
-        <input type="text" class="form-control" id="exp" placeholder="Расскажите о вашем опыте" name="exp">
+        <input type="text"
+               class="form-control"
+               id="exp"
+               placeholder="Расскажите о вашем опыте"
+               name="exp"
+               v-model.trim="experience">
       </div>
       <div class="center">
-        <button type="submit" class="btn btn-primary col col-lg-4">Регистрация</button>
+        <button type="submit" class="btn btn-primary col col-lg-4" :disabled="loading">
+          <span
+              v-show="loading"
+              class="spinner-border spinner-border-sm"
+          ></span>
+          Регистрация
+        </button>
+        <div
+            v-if="message"
+            class="alert"
+            :class="successful ? 'alert-success' : 'alert-danger'"
+        >
+          {{ message }}
+        </div>
       </div>
       <div class="mt-sm-1">
         <a>Есть аккаунт?</a>
@@ -128,42 +134,81 @@ import {email, required, minLength} from 'vuelidate/lib/validators'
 export default {
   name: "Register",
   data: () => ({
-    fullname: '',
-    birthdate: '',
-    sex: '',
+    username: '',
+    gender: 1,
     city: '',
     email: '',
     password: '',
     experience: '',
+    loading: false,
+    successful: false,
+    message: ''
   }),
   validations: {
-    fullname: {required},
-    birthdate: {required},
+    username: {required},
     email: {email, required},
     city: {required},
     password: {required, minLength: minLength(6)}
   },
+  computed: {
+    loggedIn() {
+      return this.$store.state.auth.status.loggedIn;
+    },
+  },
+  mounted() {
+    if (this.loggedIn) {
+      this.$router.push("/profile");
+    }
+  },
   methods: {
-    submitHandler() {
-      if(this.$v.$invalid)
-      {
+    removeEmpty(obj) {
+      return Object.fromEntries(
+          Object.entries(obj)
+              // eslint-disable-next-line no-unused-vars
+              .filter(([_, v]) => v != null && v !=='')
+              .map(([k, v]) => [k, v === Object(v) ? this.removeEmpty(v) : v])
+      );
+    },
+    handleRegister() {
+      console.log("Handle Register");
+      if (this.$v.$invalid) {
         this.$v.$touch();
         return;
       }
-
-      const formData = {
-        fullname: this.fullname,
-        birthdate: this.birthdate,
-        sex: this.sex,
-        city: this.city,
-        email: this.email,
-        password: this.password,
-        experience: this.experience
+      let user = {
+        "username": this.username,
+        "password": this.password,
+        "email": this.email,
+        "is_active": true,
+        "account": {
+          "city": this.city,
+          "experience": this.experience,
+          "gender": this.gender,
+        }
       }
-      console.log(formData);
-      this.$router.push('/');
-    }
-  }
+
+      this.message = "";
+      this.successful = false;
+      this.loading = true;
+
+      this.$store.dispatch("auth/register", this.removeEmpty(user)).then(
+          (response) => {
+            console.log(response);
+            this.$router.push("/login");
+          },
+          (error) => {
+            this.message =
+                (error.response &&
+                    error.response.data &&
+                    error.response.data.message) ||
+                error.message ||
+                error.toString();
+            this.successful = false;
+            this.loading = false;
+          }
+      );
+    },
+  },
 
 }
 </script>

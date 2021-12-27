@@ -11,20 +11,20 @@
               class="nav-item small">
             <a class="nav-link" href="">
               <img src="img/ion_cart-outline.svg" class="img-fluid heder__icon" alt="cart"/>
-              <span class="badge rounded-pill badge-notification bg-danger">1</span>
+              <span class="badge rounded-pill badge-notification bg-danger">{{cartCount}}</span>
             </a>
           </router-link>
           <div class="nav-item small">
             <a class="nav-link small" href="">
               <img src="img/ion_notifications-outline.svg" class="img-fluid heder__icon" alt="notify"/>
-              <span class="badge rounded-pill badge-notification bg-danger">1</span>
+              <span class="badge rounded-pill badge-notification bg-danger"></span>
             </a>
           </div>
       </div>
       <div class="navbar-collapse collapse dual-nav w-50 order-1 order-md-0">
         <ul class="navbar-nav center">
           <router-link
-              to="/register"
+              :to="userPath"
               tag="li"
               class="nav-item big">
             <a class="nav-link p-0" href="#">
@@ -42,6 +42,7 @@
               tag="li"
               :exact="link.exact"
               class="nav-item me-3 me-lg-1 mx-3"
+              :class="link.class"
               active-class="active">
             <a class="nav-link" href="#">{{ link.title }}</a>
           </router-link>
@@ -55,13 +56,13 @@
               class="nav-item big">
             <a class="nav-link" href="">
               <img src="img/ion_cart-outline.svg" class="img-fluid heder__icon" alt="cart"/>
-              <span class="badge rounded-pill badge-notification bg-danger">1</span>
+              <span class="badge rounded-pill badge-notification bg-danger">{{cartCount}}</span>
             </a>
           </router-link>
           <li class="nav-item big">
             <a class="nav-link" href="">
               <img src="img/ion_notifications-outline.svg" class="img-fluid heder__icon" alt="notify"/>
-              <span class="badge rounded-pill badge-notification bg-danger">1</span>
+              <span class="badge rounded-pill badge-notification bg-danger"></span>
             </a>
           </li>
         </ul>
@@ -76,12 +77,20 @@ export default {
   data: () => {
     return {
       links: [
-        {title: 'Личный кабинет', url: '/personalArea'},
+        {title: 'Личный кабинет', url: '/profile', class: "small"},
         {title: 'Главная', url: '/', exact: true},
         {title: 'Продукция', url: '/products'},
         {title: 'Контакты', url: '/contacts'},
         {title: 'О нас', url: '/about'}
       ]
+    }
+  },
+  computed: {
+    cartCount(){
+      return this.$store.getters.cartCount === 0?'':this.$store.getters.cartCount
+    },
+    userPath(){
+      return this.$store.state.auth.status.loggedIn?'/profile':'/login';
     }
   }
 }

@@ -14,22 +14,35 @@
 
         </div>
         <div class="col-lg-6 mt-2">
-          <img src="img/plug.png" class="img-fluid">
+          <img src="img/Iphone_13.png" class="img-fluid">
         </div>
       </div>
-      <ModelSectionLg />
-      <ModelSectionLg />
-      <ModelSectionLg />
+
+      <ModelSectionLg
+          v-for="chessboard in chessboards"
+          :chessboard="chessboard"
+          :key="chessboard.id"
+      />
     </div>
   </section>
 </template>
 
 <script>
 import ModelSectionLg from "../components/ModelSectionLg";
+import {mapGetters} from "vuex";
+
 export default {
   name: "Products",
   components: {
     ModelSectionLg
+  },
+  async mounted() {
+    await this.$store.dispatch('getChessboards');
+  },
+  computed: {
+    ...mapGetters([
+      'chessboards'
+    ])
   }
 }
 </script>

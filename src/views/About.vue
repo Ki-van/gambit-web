@@ -7,14 +7,14 @@
         Наша команда воплотила в жизнь проект, который  создан для того, чтобы сохранить и модернизировать эту увлекательную игру и дать возможность всем желающим играть с любым оппонентом независимо от расстояния, которое их разделяет.
       </p>
     </div>
-    <img src="img/plug.png" class="img-fluid  d-flex mx-auto"/>'
-    <div class="row">
+    <img src="img/Doska_all.png" class="img-fluid d-flex mx-auto about__img"/>
+    <div class="row ptop30">
       <div class="col-lg">
         <h1>Доставка и оплата</h1>
         <p>Доставка заказов осуществляется несколькими доступными способами: почтой России и курьерской службой. Оплатить заказ можно картой или наличными онлайн, или при получении.</p>
         <p>Точную стоимость, сроки, доступные способы доставки вы увидите при оформлении и оплате заказа — они могут отличаться от информации на этой странице.</p>
       </div>
-      <div class="col-lg">
+      <div class="col-lg ptop30">
         <img src="img/pochta_rossii.png" class="img-fluid row mx-auto mb-5" />
         <img src="img/cdek.png" class="img-fluid row mx-auto mb-5" />
         <img src="img/boxberry.png" class="img-fluid row mx-auto mb-5" />

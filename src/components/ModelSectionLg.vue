@@ -3,25 +3,35 @@
     <div class="row p-lg-5 p-md-3 p-sm-3 py-4 px-3">
       <div class="col-lg-6">
         <VueSlickCarousel v-bind="gallerySettings">
-          <div><img src="img/plug.png" class="img-fluid"></div>
-          <div><img src="img/plug.png" class="img-fluid"></div>
-          <div><img src="img/plug.png" class="img-fluid"></div>
-          <div><img src="img/plug.png" class="img-fluid"></div>
+          <div><img :src="chessboard.options[optionNumber].image" class="img-fluid"></div>
         </VueSlickCarousel>
       </div>
       <div class="col-lg-6 mt-sm-3 mt-3">
-        <h1>Модель 1</h1>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Habitant neque suspendisse diam id in semper
-          elementum. Felis, risus donec amet pretium. Sit ac in vel duis. Aliquam a pulvinar sed duis mus duis.</p>
+        <h1>{{chessboard.itemName}}</h1>
+        <p>{{chessboard.description}}</p>
         <p>Характеристики:</p>
-        <p>ШхДхВ - ____</p>
-        <span class="font-weight-bold" style="font-size: 1.5em">100$</span>
+        <p>ШхДхВ - {{chessboard.widthCm}}x{{chessboard.lengthCm}}x{{chessboard.heightCm}}</p>
+        <p>Материал - {{chessboard.options[optionNumber].name}}</p>
         <div class="flex__block">
           <div class="left">
-            <button class="btn btn-primary">Купить</button>
+            <span class="font-weight-bold" style="font-size: 1.5em">{{chessboard.price}}$</span>
           </div>
           <div class="right">
-            <button class="btn btn-dark">В корзину</button>
+            <img @click="optionNumber = 0" src="img/derevo.png" class="radio__btn">
+            <img @click="optionNumber = 1" src="img/metal.png" class="radio__btn">
+            <img @click="optionNumber = 2" src="img/plastik.png" class="radio__btn">
+          </div>
+        </div>
+        <div class="flex__block">
+          <div class="left">
+            <button class="btn btn-primary btn-buy">Купить</button>
+          </div>
+          <div class="right">
+            <button
+                class="btn btn-dark btn-basket"
+                @click="
+                chessboard.optionNumber = optionNumber;
+                $store.dispatch('addCartItem', chessboard)">В корзину</button>
           </div>
         </div>
       </div>
@@ -44,10 +54,12 @@ export default {
         "arrows": false,
         "slidesToShow": 1,
         "slidesToScroll": 1
-      }
+      },
+      optionNumber: 0
     }
   },
   components: {VueSlickCarousel},
+  props: ['chessboard'],
 }
 </script>
 
@@ -55,4 +67,14 @@ export default {
 .left, .right{
   width: 50%;
 }
+
+@media (max-width: 588px) {
+  .left, .right{
+    padding-top: 5px;
+    text-align: center !important;
+    justify-content: center !important;
+    width: 100%;
+  }
+}
+
 </style>

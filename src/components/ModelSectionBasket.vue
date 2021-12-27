@@ -1,26 +1,32 @@
 <template>
   <div class="mt-4" style="background-color: #e6e6e6; border-radius: 50px">
     <div class="row justify-content-end pt-4 pr-5" >
-      <button class="border-0 " style="background-color: #e6e6e6;">
+      <button class="border-0 " style="background-color: #e6e6e6;" @click="$store.dispatch('removeCartItem', item)">
         <img src="/img/icons_trash-can.svg" class="img-fluid" style="width: 30px">
       </button>
     </div>
     <div class="row p-lg-5 p-md-3 p-sm-3 px-3 my-2">
       <div class="col-lg-6">
         <VueSlickCarousel v-bind="gallerySettings">
-          <div><img src="img/plug.png" class="img-fluid"></div>
-          <div><img src="img/plug.png" class="img-fluid"></div>
-          <div><img src="img/plug.png" class="img-fluid"></div>
-          <div><img src="img/plug.png" class="img-fluid"></div>
+          <div><img :src="item.options[item.optionNumber].image" class="img-fluid"></div>
         </VueSlickCarousel>
       </div>
       <div class="col-lg-6 mt-sm-4 mt-lg-0 mb-3">
-        <h1>Модель 1</h1>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Habitant neque suspendisse diam id in semper
-          elementum. Felis, risus donec amet pretium. Sit ac in vel duis. Aliquam a pulvinar sed duis mus duis.</p>
+        <h1>{{item.itemName}}</h1>
+        <p>{{item.description}}</p>
+        <p>Характеристики:</p>
+        <p>ШхДхВ - {{item.widthCm}}x{{item.lengthCm}}x{{item.heightCm}}</p>
+        <p>Материал - {{item.options[item.optionNumber].name}}</p>
         <div class="row ">
-          <div class="col"><h1 class="font-weight-bold">200$</h1></div>
-          <div class="col"><Counter class="mt-3"/></div>
+          <div class="col">
+            <h1 class="font-weight-bold">{{item.price}}$</h1>
+          </div>
+          <div class="col">
+            <Counter class="mt-3"
+              :value="item.quantity"
+              @input="counterHandler"
+            />
+          </div>
         </div>
       </div>
     </div>
@@ -47,6 +53,14 @@ export default {
     }
   },
   components: {VueSlickCarousel, Counter},
+  props: ['item'],
+  methods: {
+    counterHandler(e){
+      this.item.quantity = e;
+      this.$store.dispatch('updateCartItem', this.item)
+      console.log(e)
+    }
+  }
 }
 </script>
 
