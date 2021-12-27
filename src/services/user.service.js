@@ -8,10 +8,6 @@ class UserService {
     getUserOrders() {
         return axios.get(API_URL + 'orders', { headers: authHeader() });
     }
-
-    getDeliveryMethods() {
-        return axios.get(API_URL + 'deliveryMethods', { headers: authHeader() });
-    }
 }
 
 export default new UserService();

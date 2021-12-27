@@ -58,11 +58,10 @@
       <div class="left ptop30">
         <div class="flex__block ptop30">
           <div class="flex__block__half"><span class="title__text">Мои заказы:</span></div>
-          <div class="flex__block__half right"><a>см. всю историю заказов</a></div>
         </div>
         <div>
           <div class="ptop30">
-            <span class="personal__text">На данный момент у вас нет активных заказов</span>
+            <span class="personal__text"></span>
           </div>
         </div>
       </div>
