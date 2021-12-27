@@ -5,8 +5,8 @@
         <div class="col-lg-6">
           <h1>Мобильное приложение</h1>
           <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Habitant neque suspendisse diam id in semper
-            elementum. Felis, risus donec amet pretium. Sit ac in vel duis. Aliquam a pulvinar sed duis mus duis.
+            Для дистанционной игры скачайте приложение GAMBIT.<br>
+            Начните играть на расстоянии уже сейчас вместе с GAMBIT.
           </p>
           <div class="row mx-sm-auto">
             <button class="btn btn-primary mx-auto">Скачать приложение</button>
